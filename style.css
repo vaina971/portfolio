@@ -252,12 +252,13 @@ span {
     height: auto;
     
 }
+
 @media screen and (max-width: 768px) {
     .container .text {
         order: 2; 
     }
 
-    .container img {
+    .container .img {
         order: 1; 
     }
 }
