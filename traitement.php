@@ -1,34 +1,36 @@
 <?php
-// Informations de connexion à la base de données
-$servername = "localhost";
-$username = "root";
-$password = ""; // MAMP : "root" | XAMPP : "" | WAMP : ""
-$dbname = "portfolio";
+// Informations de connexion à la base de données sur Render
+$servername = "LE_HOST_RENDER";       // Remplace par le Host de Render
+$username = "LE_USER_RENDER";         // Remplace par le User de Render
+$password = "LE_PASSWORD_RENDER";     // Remplace par le Password de Render
+$dbname = "portfolio";                // Le nom de la base de données
+$port = "5432";                       // Le port par défaut de PostgreSQL
 
 // Connexion à la base de données
-$conn = new mysqli($servername, $username, $password, $dbname);
+try {
+    $conn = new PDO("pgsql:host=$servername;port=$port;dbname=$dbname", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-// Vérifier la connexion
-if ($conn->connect_error) {
-    die("La connexion a échoué : " . $conn->connect_error);
-}
+    // Récupération des données du formulaire
+    $prenom = htmlspecialchars($_POST['prenom']);
+    $email = htmlspecialchars($_POST['email']);
+    $telephone = htmlspecialchars($_POST['telephone']);
+    $message = htmlspecialchars($_POST['message']);
 
-// Récupération des données du formulaire
-$prenom = htmlspecialchars($_POST['prenom']);
-$email = htmlspecialchars($_POST['email']);
-$telephone = htmlspecialchars($_POST['telephone']);
-$message = htmlspecialchars($_POST['message']);
+    // Requête SQL pour insérer les données
+    $sql = "INSERT INTO messages (prenom, email, telephone, message) 
+            VALUES (:prenom, :email, :telephone, :message)";
 
-// Requête SQL pour insérer les données
-$sql = "INSERT INTO messages (prenom, email, telephone, message) 
-        VALUES ('$prenom', '$email', '$telephone', '$message')";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':prenom', $prenom);
+    $stmt->bindParam(':email', $email);
+    $stmt->bindParam(':telephone', $telephone);
+    $stmt->bindParam(':message', $message);
+    $stmt->execute();
 
-if ($conn->query($sql) === TRUE) {
     echo "<script>alert('Message envoyé avec succès !'); window.location.href='index.html';</script>";
-} else {
-    echo "Erreur lors de l'envoi du message : " . $conn->error;
-}
 
-// Fermer la connexion
-$conn->close();
+} catch (PDOException $e) {
+    echo "Erreur lors de l'envoi du message : " . $e->getMessage();
+}
 ?>
