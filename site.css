@@ -1,0 +1,53 @@
+.about-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+span {
+    color: #5e331f;;
+}
+.text-container {
+    flex: 1;
+    margin-right: 20px;
+    text-align: center;
+    padding: 20px; 
+}
+
+.text-container h1 {
+    font-size: 36px;
+    color: #a0522d; 
+    margin-bottom: 20px;
+}
+
+.text-container p {
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+.image-container {
+    display: flex;
+    flex-direction: column; /* ou row si tu veux côte à côte */
+    align-items: center; /* centre horizontalement */
+    justify-content: center;
+    gap: 20px; /* espace entre les images */
+    padding: 20px;
+  }
+  
+  .image-container img {
+    max-width: 100%;
+    width: 80%; /* ou une valeur fixe si tu veux plus petit */
+    height: auto;
+    border-radius: 10px; /* optionnel : coins arrondis */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* optionnel : ombre légère */
+  }
+  
+
+  .download-btn {
+    padding: 10px 20px;
+    background-color: #795548;
+    color: #fff;
+    border-radius: 20px;
+}

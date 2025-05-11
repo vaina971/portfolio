@@ -1,0 +1,43 @@
+.about-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+span {
+    color: #5e331f;;
+}
+.text-container {
+    flex: 1;
+    margin-right: 20px;
+    text-align: center;
+    padding: 20px; 
+}
+
+.text-container h1 {
+    font-size: 36px;
+    color: #a0522d; 
+    margin-bottom: 20px;
+}
+
+.text-container p {
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+.images {
+    display: flex;
+    justify-content: center; /* pour centrer les deux images */
+    gap: 20px; /* espace entre les deux images */
+    margin-top: 30px;
+  }
+  
+  .images img {
+    width: 400px; /* ajuste la taille des images */
+    height: 500px; /* fixe une hauteur aussi pour avoir un format propre */
+    object-fit: cover; /* pour bien remplir sans déformation */
+    border-radius: 10px; /* optionnel : petits coins arrondis pour faire plus joli */
+  }
+  

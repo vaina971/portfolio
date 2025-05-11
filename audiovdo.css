@@ -1,0 +1,69 @@
+.about-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+span {
+    color: #5e331f;;
+}
+.text-container {
+    flex: 1;
+    margin-right: 20px;
+    text-align: center;
+    padding: 20px; 
+}
+
+.text-container h1 {
+    font-size: 36px;
+    color: #a0522d; 
+    margin-bottom: 20px;
+}
+
+.text-container p {
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+.video-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .video-row video {
+    width: 45%; /* pour qu'elles tiennent à deux sur la ligne */
+    max-width: 500px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    background: #000; /* au cas où la vidéo n’a pas encore de visuel */
+  }
+  
+  .video-single {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+  }
+  
+  .video-single video {
+    width: 60%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    background: #000;
+  }
+  
+
+  .download-btn {
+    padding: 10px 20px;
+    background-color: #795548;
+    color: #fff;
+    border-radius: 20px;
+}
+  
