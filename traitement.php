@@ -10,6 +10,11 @@ $port = "5432";
 try {
     $conn = new PDO("pgsql:host=$servername;port=$port;dbname=$dbname", $username, $password);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "Connexion réussie à la base de données";
+} catch (PDOException $e) {
+    echo "Erreur de connexion : " . $e->getMessage();
+}
+?>
 
     // Récupération des données du formulaire
     $prenom = htmlspecialchars($_POST['prenom']);
