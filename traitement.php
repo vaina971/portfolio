@@ -1,10 +1,10 @@
 <?php
 // Informations de connexion à la base de données sur Render
-$servername = "LE_HOST_RENDER";       // Remplace par le Host de Render
-$username = "LE_USER_RENDER";         // Remplace par le User de Render
-$password = "LE_PASSWORD_RENDER";     // Remplace par le Password de Render
-$dbname = "portfolio";                // Le nom de la base de données
-$port = "5432";                       // Le port par défaut de PostgreSQL
+$servername = "dpg-d0gi2gbuibrs73fl8ijg-a";       
+$username = "portfolio_db_r1so_user";         
+$password = "xL4iKSYQONnWIFaxoG9g8ZmYZeSW5scn";     
+$dbname = "portfolio_db_r1so";                
+$port = "5432";                       
 
 // Connexion à la base de données
 try {
