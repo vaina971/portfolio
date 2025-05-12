@@ -14,7 +14,7 @@ try {
 } catch (PDOException $e) {
     echo "Erreur de connexion : " . $e->getMessage();
 }
-?>
+
 
     // Récupération des données du formulaire
     $prenom = htmlspecialchars($_POST['prenom']);
