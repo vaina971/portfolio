@@ -35,7 +35,7 @@ try {
 
     echo "<script>alert('Message envoyé avec succès !'); window.location.href='index.html';</script>";
 
-} catch (PDOException $e) {
+ catch (PDOException $e) {
     echo "Erreur lors de l'envoi du message : " . $e->getMessage();
 }
 ?>
