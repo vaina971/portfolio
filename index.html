@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Vaïna Charabie — Web Designer & Designer Graphique. Portfolio créatif d'une étudiante BUT MMI passionnée par la création visuelle." />
+  <meta name="keywords" content="web design, design graphique, UX/UI, portfolio, MMI, Guadeloupe, alternance" />
+  <meta name="author" content="Vaïna Charabie" />
+  <meta property="og:title" content="Vaïna Charabie — Web Designer & Designer Graphique" />
+  <meta property="og:description" content="Portfolio créatif d'une étudiante BUT MMI passionnée par la création visuelle." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vaina-charabie.fr" />
+  <title>Vaïna Charabie — Étudiante en BUT MMI & Future Graphiste</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- CURSEUR -->
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+<div class="cursor-follower" id="cursorFollower" aria-hidden="true"></div>
+
+<!-- DÉCORATIFS -->
+<div class="particles-container" id="particlesContainer" aria-hidden="true"></div>
+<div class="butterflies-container" id="butterfliesContainer" aria-hidden="true"></div>
+<div class="petals-container" id="petalsContainer" aria-hidden="true"></div>
+<div class="stars-container" id="starsContainer" aria-hidden="true"></div>
+
+<!-- HEADER -->
+<header class="header" id="header" role="banner">
+  <nav class="nav" role="navigation" aria-label="Navigation principale">
+    <a href="#accueil" class="nav-logo" aria-label="Retour à l'accueil"><span class="logo-v">V</span>aïna</a>
+    <ul class="nav-links" role="list">
+      <li><a href="#accueil" class="nav-link active">Accueil</a></li>
+      <li><a href="#apropos" class="nav-link">À propos</a></li>
+      <li><a href="#projets" class="nav-link">Projets</a></li>
+      <li><a href="#competences" class="nav-link">Compétences</a></li>
+      <li><a href="#clients" class="nav-link">Clients</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Changer de thème">
+        <span class="theme-icon sun" aria-hidden="true">☀️</span>
+        <span class="theme-icon moon" aria-hidden="true">🌙</span>
+      </button>
+      <button class="music-toggle" id="musicToggle" aria-label="Activer la musique féérique" aria-pressed="false">
+        <span class="music-icon on" aria-hidden="true">🎵</span>
+        <span class="music-icon off" aria-hidden="true">🔇</span>
+      </button>
+      <a href="#contact" class="btn-nav-cta">Me contacter</a>
+      <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span class="burger-line"></span><span class="burger-line"></span><span class="burger-line"></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menu mobile" aria-hidden="true">
+    <ul class="mobile-nav-links" role="list">
+      <li><a href="#accueil" class="mobile-nav-link">Accueil</a></li>
+      <li><a href="#apropos" class="mobile-nav-link">À propos</a></li>
+      <li><a href="#projets" class="mobile-nav-link">Projets</a></li>
+      <li><a href="#competences" class="mobile-nav-link">Compétences</a></li>
+      <li><a href="#clients" class="mobile-nav-link">Clients</a></li>
+      <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main-content">
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<section class="hero" id="accueil" aria-label="Introduction">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="hero-blob blob-1"></div>
+    <div class="hero-blob blob-2"></div>
+    <div class="hero-blob blob-3"></div>
+  </div>
+  <div class="hero-container">
+    <div class="hero-content">
+      <p class="hero-eyebrow reveal-up">Bonjour, je suis</p>
+      <h1 class="hero-name" id="heroName" aria-label="Vaïna Charabie">
+        <span class="name-letters" id="nameLetters"></span>
+      </h1>
+      <div class="hero-title-wrapper">
+        <span class="hero-title-static">Étudiante en BUT MMI &amp; </span>
+        <span class="typewriter" id="typewriter" aria-live="polite"></span>
+      </div>
+      <p class="hero-desc reveal-up">
+        Étudiante en BUT MMI, je transforme les idées en expériences visuelles mémorables. Design graphique, identité visuelle et communication numérique — je crée des projets qui ont de l'âme.
+      </p>
+      <div class="hero-cta reveal-up">
+        <a href="#apropos" class="btn btn-primary">
+          <span>Découvrir mon univers</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#projets" class="btn btn-secondary"><span>Voir mes projets</span></a>
+      </div>
+      <div class="hero-cv reveal-up">
+        <a href="cv.pdf" target="_blank" rel="noopener noreferrer" class="btn-cv btn-cv-view">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          Voir mon CV
+        </a>
+        <a href="cv.pdf" download="CV-Vaina-Charabie.pdf" class="btn-cv btn-cv-dl">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Télécharger mon CV
+        </a>
+      </div>
+      <div class="hero-socials reveal-up" aria-label="Réseaux sociaux">
+        <a href="https://www.instagram.com/lilyrose_graphi_design/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="https://gp.linkedin.com/in/vaina-charabie-517944334" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-image-wrapper">
+        <div class="hero-image-glow" aria-hidden="true"></div>
+        <div class="hero-image-frame">
+          <img src="vaina.png" alt="Portrait de Vaïna Charabie, web designer et designer graphique" class="hero-photo" loading="eager" decoding="async" fetchpriority="high" onerror="this.src='https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&q=80'" />
+        </div>
+        <div class="floating-badge badge-1" aria-hidden="true"><span class="badge-emoji">✨</span><span>Web Designer</span></div>
+        <div class="floating-badge badge-2" aria-hidden="true"><span class="badge-emoji">🎨</span><span>Design Graphique</span></div>
+        <div class="floating-badge badge-3" aria-hidden="true"><span class="badge-emoji">📐</span><span>BUT MMI</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-indicator" aria-hidden="true">
+    <div class="scroll-mouse"><div class="scroll-dot"></div></div>
+    <p>Défiler</p>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section" aria-label="Statistiques">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item reveal-up">
+        <span class="stat-number" data-count="12">0</span><span class="stat-suffix">+</span>
+        <p class="stat-label">Projets réalisés</p>
+      </div>
+      <div class="stat-item reveal-up" style="--delay:.1s">
+        <span class="stat-number" data-count="2">0</span><span class="stat-suffix">ans</span>
+        <p class="stat-label">de formation MMI</p>
+      </div>
+      <div class="stat-item reveal-up" style="--delay:.2s">
+        <span class="stat-number" data-count="5">0</span><span class="stat-suffix">+</span>
+        <p class="stat-label">Compétences maîtrisées</p>
+      </div>
+      <div class="stat-item reveal-up" style="--delay:.3s">
+        <span class="stat-number" data-count="5">0</span><span class="stat-suffix"></span>
+        <p class="stat-label">Clients accompagnés</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- À PROPOS -->
+<section class="section apropos" id="apropos" aria-label="À propos de moi">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <p class="section-eyebrow">Qui suis-je ?</p>
+      <h2 class="section-title">À propos <em>de moi</em></h2>
+      <div class="section-divider" aria-hidden="true"></div>
+    </div>
+    <div class="apropos-grid">
+      <div class="apropos-visual reveal-left">
+        <div class="apropos-image-wrapper">
+          <img src="vaina2.png" alt="Vaïna Charabie dans son environnement créatif" class="apropos-photo" loading="lazy" decoding="async" onerror="this.src='https://images.unsplash.com/photo-1589156229687-496a31ad1d1f?w=500&q=80'" />
+          <div class="apropos-image-deco deco-flower" aria-hidden="true">🌸</div>
+          <div class="apropos-image-deco deco-star" aria-hidden="true">⭐</div>
+        </div>
+        <div class="apropos-card-float reveal-up">
+          <div class="apropos-card-icon">🎓</div>
+          <div><strong>BUT MMI — Bac +3</strong><p>Université des Antilles</p></div>
+        </div>
+      </div>
+      <div class="apropos-content reveal-right">
+        <div class="apropos-intro">
+          <h3>Bonjour, je suis Vaïna !</h3>
+          <p>Étudiante en 3ème année de BUT Métiers du Multimédia et de l'Internet (MMI) à l'IUT de Saint-Claude, Université des Antilles, je suis passionnée par la création visuelle, le design graphique et la communication numérique.</p>
+          <p>En alternance chez <strong>10Gitallab</strong>, je crée quotidiennement des contenus visuels pour les réseaux sociaux (Facebook et Instagram) de plusieurs marques. Cette expérience concrète nourrit et enrichit ma pratique créative.</p>
+          <p>Curieuse et rigoureuse, j'aime dessiner, photographier et concevoir des identités visuelles qui racontent une histoire.</p>
+        </div>
+        <div class="apropos-interests">
+          <h4>Mes passions</h4>
+          <div class="interests-grid">
+            <div class="interest-tag">🎨 Design graphique</div>
+            <div class="interest-tag">📸 Photographie</div>
+            <div class="interest-tag">🎬 Audiovisuel</div>
+            <div class="interest-tag">✏️ Illustration</div>
+            <div class="interest-tag">📱 Réseaux sociaux</div>
+            <div class="interest-tag">🌐 Web Design</div>
+            <div class="interest-tag">✈️ Voyages</div>
+            <div class="interest-tag">🎵 Musique</div>
+          </div>
+        </div>
+        <a href="#contact" class="btn btn-primary">Me contacter</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARCOURS -->
+<section class="section parcours" id="parcours" aria-label="Mon parcours">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <p class="section-eyebrow">Mon chemin</p>
+      <h2 class="section-title">Mon <em>parcours</em></h2>
+      <div class="section-divider" aria-hidden="true"></div>
+    </div>
+    <div class="timeline-tabs" role="tablist" aria-label="Parcours">
+      <button class="timeline-tab active" data-tab="formation" role="tab" aria-selected="true" aria-controls="tab-formation">🎓 Formation</button>
+      <button class="timeline-tab" data-tab="experiences" role="tab" aria-selected="false" aria-controls="tab-experiences">💼 Expériences</button>
+    </div>
+    <div class="timeline-panels">
+
+      <!-- FORMATION -->
+      <div class="timeline-panel active" id="tab-formation" role="tabpanel">
+        <div class="timeline">
+          <div class="timeline-item reveal-left">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">2024 – Présent</div>
+            <div class="timeline-content">
+              <h3>BUT Métiers du Multimédia et de l'Internet</h3>
+              <p class="timeline-lieu">Université des Antilles — IUT de Saint-Claude</p>
+              <p>Actuellement en 3ème année. Bac +3 en cours. Formation pluridisciplinaire autour du web, du design graphique, de l'audiovisuel et de la communication numérique.</p>
+              <div class="timeline-tags"><span>Web Design</span><span>Design Graphique</span><span>Audiovisuel</span><span>Communication</span></div>
+            </div>
+          </div>
+          <div class="timeline-item reveal-right">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">2021 – 2024</div>
+            <div class="timeline-content">
+              <h3>Bac STD2A</h3>
+              <p class="timeline-lieu">Lycée Raoul Georges Nicolo</p>
+              <p>Baccalauréat Sciences et Technologies du Design et des Arts Appliqués. Diplôme obtenu.</p>
+              <div class="timeline-tags"><span>Arts Appliqués</span><span>Design</span><span>Diplôme obtenu</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXPÉRIENCES -->
+      <div class="timeline-panel" id="tab-experiences" role="tabpanel">
+        <div class="timeline">
+          <div class="timeline-item reveal-left">
+            <div class="timeline-dot timeline-dot--current"></div>
+            <div class="timeline-date">Depuis septembre 2025</div>
+            <div class="timeline-content timeline-content--highlight">
+              <div class="timeline-badge">En cours</div>
+              <h3>Alternance — Graphisme</h3>
+              <p class="timeline-lieu">10Gitallab</p>
+              <p>Création de contenus visuels pour la communication digitale de plusieurs clients. Travail quotidien sur les réseaux sociaux Facebook et Instagram.</p>
+              <div class="timeline-tags"><span>Visuels Facebook</span><span>Visuels Instagram</span><span>Communication digitale</span><span>Design graphique</span><span>Création de contenus</span></div>
+            </div>
+          </div>
+          <div class="timeline-item reveal-right">
+            <div class="timeline-dot"></div>
+            <div class="timeline-date">Juin 2025</div>
+            <div class="timeline-content">
+              <h3>Stage — Graphisme</h3>
+              <p class="timeline-lieu">Mélanine Studio</p>
+              <p>Missions de création graphique, retouche d'images et communication visuelle. Utilisation quotidienne de Photoshop et Illustrator.</p>
+              <div class="timeline-tags"><span>Création graphique</span><span>Retouche d'images</span><span>Photoshop</span><span>Illustrator</span><span>Communication visuelle</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJETS -->
+<section class="section projets" id="projets" aria-label="Mes projets">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <p class="section-eyebrow">Portfolio</p>
+      <h2 class="section-title">Mes <em>réalisations</em></h2>
+      <div class="section-divider" aria-hidden="true"></div>
+      <p class="section-desc">Cliquez sur un projet pour découvrir l'étude de cas complète.</p>
+    </div>
+    <div class="projets-filters" role="tablist" aria-label="Filtrer les projets">
+      <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">Tous</button>
+      <button class="filter-btn" data-filter="comprendre" role="tab" aria-selected="false">Comprendre</button>
+      <button class="filter-btn" data-filter="concevoir" role="tab" aria-selected="false">Concevoir</button>
+      <button class="filter-btn" data-filter="exprimer" role="tab" aria-selected="false">Exprimer</button>
+      <button class="filter-btn" data-filter="developper" role="tab" aria-selected="false">Développer</button>
+      <button class="filter-btn" data-filter="entreprendre" role="tab" aria-selected="false">Entreprendre</button>
+    </div>
+    <div class="projets-grid" id="projetsGrid">
+
+      <!-- Projet 1 — Exprimer -->
+      <article class="projet-card" data-category="exprimer"
+        data-title="Photographies"
+        data-desc="Série de photographies réalisées dans le cadre de la formation MMI : environnement, portrait et mise en valeur d'un produit."
+        data-objectifs="Réaliser des photographies d'environnement en respectant les règles de composition (règle des tiers, cadrage, symétrie), des portraits en jouant sur les différents jeux de lumière, et des photographies de produits mettant en valeur l'objet."
+        data-outils="Appareil photo reflex, Adobe Lightroom"
+        data-competences="Composition photographique, gestion de la lumière, mise en scène d'un produit"
+        data-images="assets/projets/photo1.jpg,assets/projets/photo2.jpg,assets/projets/photo3.jpg,assets/projets/photo4.jpg,assets/projets/photo5.jpg,assets/projets/photo6.jpg"
+        data-lien="">
+        <div class="projet-image-wrapper">
+          <img src="assets/projets/photo1.jpg" alt="Photographies — règle des tiers, portrait, produit" class="projet-image" loading="lazy" decoding="async" />
+          <div class="projet-overlay"><span class="projet-link">Voir l'étude de cas →</span></div>
+          <div class="projet-category-badge">Exprimer</div>
+        </div>
+        <div class="projet-info">
+          <h3 class="projet-title">Photographies</h3>
+          <p class="projet-desc">Photographies d'environnement, de portrait et de produit autour des règles de composition.</p>
+          <div class="projet-tech"><span>Photographie</span><span>Lightroom</span><span>Composition</span></div>
+        </div>
+      </article>
+
+      <!-- Projet 2 — Exprimer -->
+      <article class="projet-card" data-category="exprimer"
+        data-title="Affiches — MDL Raoul Georges Nicolo"
+        data-desc="Création d'affiches pour la Maison Des Lycéens (MDL) du lycée Raoul Georges Nicolo : castings Miss et Mister, fête de Noël, journée d'élégance."
+        data-objectifs="Concevoir une série d'affiches déclinées avec une couleur ou un élément dominant par événement : bleu pour le casting Miss et Mister 2024, rouge pour la fête de Noël, madras pour la journée d'élégance, jaune pour le casting Miss et Mister 2025."
+        data-outils="Adobe Photoshop, Adobe Illustrator"
+        data-competences="Design print, direction artistique, déclinaison d'une identité par événement"
+        data-images="assets/projets/affiche1.jpg,assets/projets/affiche2.jpg,assets/projets/affiche3.jpg,assets/projets/affiche4.jpg"
+        data-lien="https://www.instagram.com/rgn_mdl/">
+        <div class="projet-image-wrapper">
+          <img src="assets/projets/affiche1.jpg" alt="Affiches MDL — casting Miss et Mister" class="projet-image" loading="lazy" decoding="async" />
+          <div class="projet-overlay"><span class="projet-link">Voir l'étude de cas →</span></div>
+          <div class="projet-category-badge">Exprimer</div>
+        </div>
+        <div class="projet-info">
+          <h3 class="projet-title">Affiches — MDL Raoul Georges Nicolo</h3>
+          <p class="projet-desc">Affiches pour les événements de la MDL du lycée : castings, Noël, journée d'élégance.</p>
+          <div class="projet-tech"><span>Photoshop</span><span>Illustrator</span><span>Canva</span></div>
+        </div>
+      </article>
+
+      <!-- Projet 3 — Exprimer -->
+      <article class="projet-card" data-category="exprimer"
+        data-title="Production graphique"
+        data-desc="Productions graphiques variées réalisées au cours de l'année : affiche façon Saul Bass, retouche photo, communication institutionnelle et création de logos."
+        data-objectifs="Explorer différents styles graphiques : affiche du film Harry Potter dans le style Saul Bass, modification d'une photographie façon « portrait plastique », affiches de présentation des BUT disponibles à l'IUT de Guadeloupe, logo d'une marque fictive de livres accompagné de sa charte graphique, logo de l'artiste Banksy dans son propre style."
+        data-outils="Adobe Photoshop, Adobe Illustrator"
+        data-competences="Création de logo, charte graphique, retouche photo, composition graphique"
+        data-images="assets/projets/graph1.jpg,assets/projets/graph2.jpg,assets/projets/graph3.jpg,assets/projets/graph4.jpg,assets/projets/graph5.jpg,assets/projets/graph6.jpg"
+        data-lien=""
+        data-download="assets/projets/charte-graphique.pdf"
+        data-download-label="Télécharger la charte graphique">
+        <div class="projet-image-wrapper">
+          <img src="assets/projets/graph1.jpg" alt="Production graphique — logos et affiches" class="projet-image" loading="lazy" decoding="async" />
+          <div class="projet-overlay"><span class="projet-link">Voir l'étude de cas →</span></div>
+          <div class="projet-category-badge">Exprimer</div>
+        </div>
+        <div class="projet-info">
+          <h3 class="projet-title">Production graphique</h3>
+          <p class="projet-desc">Affiches, retouche photo et création de logos réalisés au cours de l'année.</p>
+          <div class="projet-tech"><span>Photoshop</span><span>Illustrator</span><span>Canva</span></div>
+        </div>
+      </article>
+
+      <!-- Projet 4 — Développer -->
+      <article class="projet-card" data-category="developper"
+        data-title="Site internet — Thaïlande"
+        data-desc="Développement d'un site vitrine présentant trois villes de Thaïlande (Ayutthaya, Bangkok, Nakhon Pathom) et ce qui les relie."
+        data-objectifs="Concevoir un site web mettant en valeur trois villes thaïlandaises et leurs liens historiques et culturels, avec une navigation claire et un design responsive."
+        data-outils="HTML5, CSS3, JavaScript, Netlify"
+        data-competences="Développement front-end, structuration de contenu, design responsive"
+        data-images="assets/projets/site2.jpg,assets/projets/site1.jpg"
+        data-lien="http://gentle-licorice-b01d18.netlify.app">
+        <div class="projet-image-wrapper">
+          <img src="assets/projets/site2.jpg" alt="Site internet — Ayutthaya, Bangkok, Nakhon Pathom" class="projet-image" loading="lazy" decoding="async" />
+          <div class="projet-overlay"><span class="projet-link">Voir l'étude de cas →</span></div>
+          <div class="projet-category-badge">Développer</div>
+        </div>
+        <div class="projet-info">
+          <h3 class="projet-title">Site internet — Thaïlande</h3>
+          <p class="projet-desc">Site vitrine sur trois villes de Thaïlande et leurs liens historiques.</p>
+          <div class="projet-tech"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+        </div>
+      </article>
+
+      <!-- Projet 5 — Comprendre / Exprimer -->
+      <article class="projet-card" data-category="comprendre exprimer"
+        data-title="Production audiovisuelle"
+        data-desc="Réalisation de courts-métrages de fiction (« L'École Magique », « Le vide à côté de moi »...) et d'un documentaire de groupe sur les troubles invisibles chez les jeunes."
+        data-objectifs="Écrire, tourner et monter plusieurs courts-métrages de fiction. Pour le documentaire « Les troubles invisibles chez les jeunes », comprendre et retranscrire un sujet de société sensible à travers le témoignage et l'image, en équipe (scénario : Vanessa Claire, réalisation : Sabrina Martin, montage vidéo : Vaïna Charabie)."
+        data-outils="Adobe Premiere Pro, Adobe After Effects"
+        data-competences="Écriture de scénario, tournage, montage vidéo, mixage audio, travail d'équipe"
+        data-images="assets/projets/audiovisuel/cover.jpg,https://drive.google.com/file/d/13ZXNSHDM_Mcd9nstIFnZ5O6pN8lG9Uwe/view,https://drive.google.com/file/d/1bZbRyNCVtoHpveWX8jj_A4pDsKuF1hTm/view,https://drive.google.com/file/d/1OwkvkM7xiQnBZJE95IawCe12RmCujTDZ/view,https://drive.google.com/file/d/1jefCJj2pDVhcOY5ci0xIZdkmkiHJKzbV/view"
+        data-lien="">
+        <div class="projet-image-wrapper">
+          <img src="assets/projets/audiovisuel/cover.jpg" alt="Production audiovisuelle" class="projet-image" loading="lazy" decoding="async" />
+          <div class="projet-overlay"><span class="projet-link">Voir l'étude de cas →</span></div>
+          <div class="projet-category-badge">Multi-UE</div>
+        </div>
+        <div class="projet-info">
+          <h3 class="projet-title">Production audiovisuelle</h3>
+          <p class="projet-desc">Courts-métrages de fiction et documentaire sur les troubles invisibles chez les jeunes.</p>
+          <div class="projet-tech"><span>Davinci</span><span>Capcut</span><span>Premiere Pro</span></div>
+        </div>
+      </article>
+
+      <!-- Projet 6 — Exprimer -->
+      <article class="projet-card" data-category="exprimer"
+        data-title="Communication digitale"
+        data-desc="Création de visuels Instagram pour la MDL du lycée Raoul Georges Nicolo et propositions de logo pour les réseaux sociaux d'une petite entreprise de crochet."
+        data-objectifs="Produire des visuels adaptés au format Instagram pour la MDL du lycée, et proposer plusieurs pistes de logo pour l'identité sociale d'une entreprise artisanale de crochet."
+        data-outils="Adobe Photoshop, Canva"
+        data-competences="Community management visuel, création de logo, adaptation aux formats réseaux sociaux"
+        data-images="assets/projets/comunity1.png,assets/projets/comunity2.png,assets/projets/comunity3.png,assets/projets/comunity4.png,assets/projets/comunity5.png"
+        data-lien="">
+        <div class="projet-image-wrapper">
+          <img src="assets/projets/comunity1.png" alt="Communication digitale — visuels Instagram" class="projet-image" loading="lazy" decoding="async" />
+          <div class="projet-overlay"><span class="projet-link">Voir l'étude de cas →</span></div>
+          <div class="projet-category-badge">Exprimer</div>
+        </div>
+        <div class="projet-info">
+          <h3 class="projet-title">Communication digitale</h3>
+          <p class="projet-desc">Visuels Instagram pour la MDL et propositions de logo pour une entreprise de crochet.</p>
+          <div class="projet-tech"><span>Photoshop</span><span>Canva</span><span>Social Media</span></div>
+        </div>
+      </article>
+
+      <!-- Projet 7 — Exprimer -->
+      <article class="projet-card" data-category="exprimer"
+        data-title="Écriture multimédia"
+        data-desc="Écriture d'un scénario de documentaire consacré à Christian Lara, ancien réalisateur guadeloupéen."
+        data-objectifs="Rédiger un scénario de documentaire structuré, retraçant le parcours et l'œuvre du réalisateur guadeloupéen Christian Lara."
+        data-outils="Écriture scénaristique"
+        data-competences="Écriture de scénario, recherche documentaire, structuration narrative"
+        data-images="assets/projets/ecriture1.jpg,assets/projets/ecriture2.jpg,assets/projets/ecriture3.jpg,assets/projets/ecriture4.png,assets/projets/ecriture5.png"
+        data-lien="">
+        <div class="projet-image-wrapper">
+          <img src="assets/projets/ecriture1.jpg" alt="Écriture multimédia — scénario documentaire" class="projet-image" loading="lazy" decoding="async" />
+          <div class="projet-overlay"><span class="projet-link">Voir l'étude de cas →</span></div>
+          <div class="projet-category-badge">Exprimer</div>
+        </div>
+        <div class="projet-info">
+          <h3 class="projet-title">Écriture multimédia</h3>
+          <p class="projet-desc">Scénario de documentaire sur le réalisateur guadeloupéen Christian Lara.</p>
+          <div class="projet-tech"><span>Scénario</span><span>Écriture</span><span>Documentaire</span></div>
+        </div>
+      </article>
+
+      <!-- Projet 8 — Concevoir / Exprimer -->
+      <article class="projet-card" data-category="concevoir exprimer"
+        data-title="Identité visuelle multi-supports — Bulle"
+        data-desc="TP individuel : construction d'une identité visuelle complète pour « Bulle », déclinée sur plusieurs supports (application, réseaux sociaux, web) et animée en motion design."
+        data-objectifs="Concevoir un logotype (signe + logotype) avec ses variantes, un système chromatique et une grille typographique cohérents, puis décliner l'identité sur les contraintes de chaque support (icône d'application, mobile, web/landing, réseaux sociaux, notification) tout en respectant des règles d'usage strictes (zone de protection, fonds autorisés, versions monochromes). Finaliser par une amorce de motion design du logo."
+        data-outils="Figma, Adobe Illustrator, Adobe Photoshop, After Effects"
+        data-competences="Création de logo, système chromatique, grille typographique, déclinaisons multi-supports, motion design"
+        data-images="assets/projets/bulle/logo.png,assets/projets/bulle/declinaison-instagram.png,assets/projets/bulle/animation-logo.mov"
+        data-doc="assets/projets/bulle/charte-graphique.pdf"
+        data-lien=""
+        data-download="assets/projets/bulle/charte-graphique.pdf"
+        data-download-label="Télécharger la charte graphique complète">
+        <div class="projet-image-wrapper">
+          <img src="assets/projets/bulle/logo.png" alt="Identité visuelle Bulle — logo" class="projet-image" loading="lazy" decoding="async" />
+          <div class="projet-overlay"><span class="projet-link">Voir l'étude de cas →</span></div>
+          <div class="projet-category-badge">Multi-UE</div>
+        </div>
+        <div class="projet-info">
+          <h3 class="projet-title">Identité visuelle multi-supports — Bulle</h3>
+          <p class="projet-desc">Logo, charte graphique, déclinaisons multi-supports et motion design.</p>
+          <div class="projet-tech"><span>Branding</span><span>Charte graphique</span><span>Motion design</span></div>
+        </div>
+      </article>
+
+      <!-- Projet 9 — Comprendre / Concevoir / Exprimer -->
+      <article class="projet-card" data-category="comprendre concevoir exprimer"
+        data-title="Moodboard &amp; visuel tendances 2026"
+        data-desc="Exercice de veille et de création : moodboard des tendances graphiques et typographiques 2026, puis création d'un visuel animé exprimant le message d'une citation selon ces tendances."
+        data-objectifs="Analyser et synthétiser les tendances graphiques et typographiques 2026 dans un moodboard. Choisir une citation (« Le bonheur est un papillon... » — Nathaniel Hawthorne) et créer un visuel qui en exprime le message en s'appuyant sur la typographie et l'infographie, puis l'animer en motion design (10 secondes minimum)."
+        data-outils="Adobe Photoshop, Adobe Illustrator, After Effects"
+        data-competences="Veille graphique, typographie, infographie, direction artistique, motion design"
+        data-images="assets/projets/motion-2026/01-moodboard-tendances.jpg,assets/projets/motion-2026/02-visuel-citation.jpg,assets/projets/motion-2026/03-animation.mp4"
+        data-lien="">
+        <div class="projet-image-wrapper">
+          <img src="assets/projets/motion-2026/01-moodboard-tendances.jpg" alt="Moodboard tendances graphiques 2026" class="projet-image" loading="lazy" decoding="async" />
+          <div class="projet-overlay"><span class="projet-link">Voir l'étude de cas →</span></div>
+          <div class="projet-category-badge">Multi-UE</div>
+        </div>
+        <div class="projet-info">
+          <h3 class="projet-title">Moodboard &amp; visuel tendances 2026</h3>
+          <p class="projet-desc">Veille des tendances graphiques 2026 et visuel animé expressif.</p>
+          <div class="projet-tech"><span>Tendances</span><span>Typographie</span><span>Motion design</span></div>
+        </div>
+      </article>
+
+      <!-- Projet 10 — Multi-UE -->
+      <article class="projet-card" data-category="comprendre concevoir exprimer developper entreprendre"
+        data-title="Campagne Gwadloup Otreman — Office de Tourisme"
+        data-desc="SAE 4.Crea.01 en groupe pour l'Office de Tourisme des Îles de Guadeloupe : campagne « Une autre Guadeloupe à vivre ». En charge de la création visuelle : moodboard, charte graphique et contenus Instagram."
+        data-objectifs="Comprendre le brief et le public cible (persona, douleurs, motivations), concevoir le territoire émotionnel et l'identité visuelle de la campagne, puis réaliser la charte graphique complète et les déclinaisons Instagram (posts carrés, carrousels, mockup de feed)."
+        data-outils="Adobe Photoshop, Adobe Illustrator, Figma"
+        data-competences="Direction artistique, charte graphique, création de contenus réseaux sociaux, travail d'équipe"
+        data-images=""
+        data-doc="assets/projets/sae4-tourisme/dossier-complet.pdf"
+        data-lien=""
+        data-download="assets/projets/sae4-tourisme/brief.pdf"
+        data-download-label="Télécharger le brief du projet">
+        <div class="projet-image-wrapper">
+          <img src="assets/projets/sae4-tourisme/cover.jpg" alt="Campagne Gwadloup Otreman — moodboard" class="projet-image" loading="lazy" decoding="async" />
+          <div class="projet-overlay"><span class="projet-link">Voir l'étude de cas →</span></div>
+          <div class="projet-category-badge">Multi-UE</div>
+        </div>
+        <div class="projet-info">
+          <h3 class="projet-title">Campagne Gwadloup Otreman — Office de Tourisme</h3>
+          <p class="projet-desc">Charte graphique et contenus Instagram pour une campagne touristique, en groupe.</p>
+          <div class="projet-tech"><span>Branding</span><span>Réseaux sociaux</span><span>Travail d'équipe</span></div>
+        </div>
+      </article>
+
+      <!-- Projet 11 — Multi-UE -->
+      <article class="projet-card" data-category="comprendre concevoir exprimer entreprendre"
+        data-title="Projet Street-Art — Digistart"
+        data-desc="Projet de groupe autour du street-art, mené dans le cadre du dispositif Digistart. Gestion de projet et stratégie de communication en tant que cheffe de projet."
+        data-objectifs="Comprendre les enjeux d'un projet de groupe, concevoir sa stratégie de communication, réaliser les visuels associés et piloter le projet de bout en bout en tant que cheffe de projet (Digistart)."
+        data-outils="Gestion de projet, Adobe Photoshop, Adobe Illustrator"
+        data-competences="Gestion de projet, stratégie de communication, direction artistique, travail d'équipe"
+        data-images="assets/projets/gestion1.png,assets/projets/gestion2.png,assets/projets/gestion3.png,assets/projets/gestion4.png,assets/projets/gestion5.jpg,assets/projets/gestion6.png,assets/projets/gestion7.png"
+        data-lien="https://www.instagram.com/but_mmi971/"
+        data-download="assets/projets/street-art.pdf"
+        data-download-label="Télécharger l'explication du projet">
+        <div class="projet-image-wrapper">
+          <img src="assets/projets/gestion1.png" alt="Projet Street-Art — Digistart" class="projet-image" loading="lazy" decoding="async" />
+          <div class="projet-overlay"><span class="projet-link">Voir l'étude de cas →</span></div>
+          <div class="projet-category-badge">Multi-UE</div>
+        </div>
+        <div class="projet-info">
+          <h3 class="projet-title">Projet Street-Art — Digistart</h3>
+          <p class="projet-desc">Projet de groupe sur le street-art, piloté en tant que cheffe de projet.</p>
+          <div class="projet-tech"><span>Gestion de projet</span><span>Communication</span><span>Direction artistique</span></div>
+        </div>
+      </article>
+
+      <!-- Projet 12 — Multi-UE -->
+      <article class="projet-card" data-category="comprendre concevoir developper entreprendre"
+        data-title="Projet Tropical Beauty"
+        data-desc="Projet de groupe pour une entreprise fictive, Tropical Beauty : création d'un site internet, d'affiches bilingues et d'un business plan complet."
+        data-objectifs="Comprendre les besoins d'une entreprise fictive, concevoir son site internet et ses supports de communication (affiches francophones et internationales), et rédiger un business plan complet."
+        data-outils="HTML5, CSS3, Adobe Illustrator"
+        data-competences="Développement web, design print international, entrepreneuriat, rédaction de business plan"
+        data-images="assets/projets/business1.jpg,assets/projets/business2.jpg,assets/projets/business3.jpg,assets/projets/business4.jpg,assets/projets/business5.jpg"
+        data-lien=""
+        data-download="assets/projets/business-plan.pdf"
+        data-download-label="Télécharger le business plan">
+        <div class="projet-image-wrapper">
+          <img src="assets/projets/business1.jpg" alt="Projet Tropical Beauty" class="projet-image" loading="lazy" decoding="async" />
+          <div class="projet-overlay"><span class="projet-link">Voir l'étude de cas →</span></div>
+          <div class="projet-category-badge">Multi-UE</div>
+        </div>
+        <div class="projet-info">
+          <h3 class="projet-title">Projet Tropical Beauty</h3>
+          <p class="projet-desc">Site internet, affiches bilingues et business plan pour une entreprise fictive.</p>
+          <div class="projet-tech"><span>Web</span><span>Print</span><span>Business plan</span></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- COMPÉTENCES -->
+<section class="section competences" id="competences" aria-label="Mes compétences">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <p class="section-eyebrow">Savoir-faire</p>
+      <h2 class="section-title">Mes <em>compétences</em></h2>
+      <div class="section-divider" aria-hidden="true"></div>
+    </div>
+    <div class="competences-grid">
+      <div class="competences-bars reveal-left">
+        <h3 class="comp-subtitle">Compétences techniques</h3>
+        <div class="skill-bar-item">
+          <div class="skill-bar-header"><span class="skill-name">Adobe Photoshop</span><span class="skill-percent" data-target="88">0%</span></div>
+          <div class="skill-bar-track" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" aria-label="Photoshop : 88%"><div class="skill-bar-fill" data-width="88"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-header"><span class="skill-name">Adobe Illustrator</span><span class="skill-percent" data-target="82">0%</span></div>
+          <div class="skill-bar-track" role="progressbar" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100" aria-label="Illustrator : 82%"><div class="skill-bar-fill" data-width="82"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-header"><span class="skill-name">Figma</span><span class="skill-percent" data-target="85">0%</span></div>
+          <div class="skill-bar-track" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="Figma : 85%"><div class="skill-bar-fill" data-width="85"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-header"><span class="skill-name">Design Graphique</span><span class="skill-percent" data-target="90">0%</span></div>
+          <div class="skill-bar-track" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" aria-label="Design Graphique : 90%"><div class="skill-bar-fill" data-width="90"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-header"><span class="skill-name">Communication visuelle</span><span class="skill-percent" data-target="87">0%</span></div>
+          <div class="skill-bar-track" role="progressbar" aria-valuenow="87" aria-valuemin="0" aria-valuemax="100" aria-label="Communication visuelle : 87%"><div class="skill-bar-fill" data-width="87"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-header"><span class="skill-name">HTML / CSS</span><span class="skill-percent" data-target="75">0%</span></div>
+          <div class="skill-bar-track" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" aria-label="HTML/CSS : 75%"><div class="skill-bar-fill" data-width="75"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-header"><span class="skill-name">Retouche photo</span><span class="skill-percent" data-target="85">0%</span></div>
+          <div class="skill-bar-track" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" aria-label="Retouche : 85%"><div class="skill-bar-fill" data-width="85"></div></div>
+        </div>
+      </div>
+      <div class="competences-right reveal-right">
+        <h3 class="comp-subtitle">Logiciels & Outils</h3>
+        <div class="tools-grid">
+          <div class="tool-card"><div class="tool-icon">📸</div><span>Photoshop</span></div>
+          <div class="tool-card"><div class="tool-icon">🖌️</div><span>Illustrator</span></div>
+          <div class="tool-card"><div class="tool-icon">🎨</div><span>Figma</span></div>
+          <div class="tool-card"><div class="tool-icon">📐</div><span>Canva</span></div>
+          <div class="tool-card"><div class="tool-icon">🌐</div><span>WordPress</span></div>
+          <div class="tool-card"><div class="tool-icon">💻</div><span>VS Code</span></div>
+        </div>
+
+        <h3 class="comp-subtitle" style="margin-top:2rem">Qualités</h3>
+        <div class="softskills-list">
+          <div class="softskill-item"><span class="softskill-icon">🎯</span><div><strong>Créativité</strong><p>Solutions visuelles originales et adaptées</p></div></div>
+          <div class="softskill-item"><span class="softskill-icon">⏰</span><div><strong>Rigueur & organisation</strong><p>Respect des délais et des priorités</p></div></div>
+          <div class="softskill-item"><span class="softskill-icon">📚</span><div><strong>Curiosité</strong><p>Veille permanente sur les tendances design</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENTS -->
+<section class="section clients" id="clients" aria-label="Mes clients">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <p class="section-eyebrow">Ils me font confiance</p>
+      <h2 class="section-title">Mes <em>clients</em></h2>
+      <div class="section-divider" aria-hidden="true"></div>
+      <p class="section-desc">Clients accompagnés durant mon alternance chez <strong>10Gitallab</strong> : je crée pour eux des contenus visuels pour Facebook et Instagram. Cliquez sur un client pour découvrir les missions, réalisations et aperçus.</p>
+    </div>
+    <div class="clients-grid">
+
+      <div class="client-card reveal-up"
+        data-client-name="La Toubana"
+        data-client-desc="Hôtel de luxe en Guadeloupe, reconnu pour son cadre exceptionnel et son service haut de gamme."
+        data-client-mission="Création de visuels pour la communication sur les réseaux sociaux Facebook et Instagram de l'hôtel, dans le cadre de mon alternance chez 10Gitallab."
+        data-client-fb="Publications mettant en valeur les chambres, les vues panoramiques et les services de l'hôtel."
+        data-client-ig="Stories et posts esthétiques reflétant le standing et l'atmosphère luxueuse de l'établissement."
+        data-client-results="Augmentation de la présence visuelle sur les réseaux. Visuels cohérents avec le positionnement luxe de la marque."
+        data-client-logo="🏨"
+        data-client-img-ig="assets/clients/la-toubana/instagram-feed.jpg"
+        data-client-img-fb="assets/clients/la-toubana/facebook-post.jpg">
+        <div class="client-logo-wrapper"><div class="client-logo-placeholder">🏨</div></div>
+        <h3 class="client-name">La Toubana</h3>
+        <p class="client-agency-badge">🏢 Client via 10Gitallab</p>
+        <p class="client-tag">Hôtel de luxe</p>
+        <p class="client-preview">Communication réseaux sociaux & image de marque</p>
+        <div class="client-cta">Voir la mission →</div>
+      </div>
+
+      <div class="client-card reveal-up" style="--delay:.08s"
+        data-client-name="Des Hôtels & Des Îles"
+        data-client-desc="Groupe hôtelier présent dans les îles des Caraïbes, proposant des expériences de séjour authentiques et dépaysantes."
+        data-client-mission="Création de visuels pour la promotion des différents hôtels du groupe sur les réseaux sociaux, dans le cadre de mon alternance chez 10Gitallab."
+        data-client-fb="Contenus Facebook mettant en scène les destinations, les activités et l'art de vivre caraïbéen."
+        data-client-ig="Galeries Instagram immersives présentant chaque île et chaque établissement de façon distinctive."
+        data-client-results="Production régulière de contenus adaptés à plusieurs établissements. Cohérence visuelle maintenue sur toutes les plateformes."
+        data-client-logo="🌴"
+        data-client-img-ig="assets/clients/des-hotels-des-iles/instagram-feed.jpg"
+        data-client-img-fb="assets/clients/des-hotels-des-iles/facebook-post.jpg">
+        <div class="client-logo-wrapper"><div class="client-logo-placeholder">🌴</div></div>
+        <h3 class="client-name">Des Hôtels & Des Îles</h3>
+        <p class="client-agency-badge">🏢 Client via 10Gitallab</p>
+        <p class="client-tag">Groupe hôtelier</p>
+        <p class="client-preview">Promotion digitale multi-établissements</p>
+        <div class="client-cta">Voir la mission →</div>
+      </div>
+
+      <div class="client-card reveal-up" style="--delay:.16s"
+        data-client-name="Capes Dolé"
+        data-client-desc="Marque locale proposant des produits artisanaux et culturels représentatifs de la Guadeloupe."
+        data-client-mission="Création de visuels pour les réseaux sociaux mettant en valeur les produits et l'identité de la marque, dans le cadre de mon alternance chez 10Gitallab."
+        data-client-fb="Publications Facebook présentant les nouveaux produits, les promotions et les événements de la marque."
+        data-client-ig="Contenus Instagram soignés reflétant l'artisanat local et les valeurs culturelles de Capes Dolé."
+        data-client-results="Visuels cohérents et professionnels renforçant l'identité de la marque sur le digital."
+        data-client-logo="🛍️"
+        data-client-img-ig="assets/clients/capes-dole/instagram-feed.jpg"
+        data-client-img-fb="assets/clients/capes-dole/facebook-post.jpg">
+        <div class="client-logo-wrapper"><div class="client-logo-placeholder">🛍️</div></div>
+        <h3 class="client-name">Capes Dolé</h3>
+        <p class="client-agency-badge">🏢 Client via 10Gitallab</p>
+        <p class="client-tag">Marque locale</p>
+        <p class="client-preview">Identité visuelle & communication produits</p>
+        <div class="client-cta">Voir la mission →</div>
+      </div>
+
+      <div class="client-card reveal-up" style="--delay:.24s"
+        data-client-name="Monoprix"
+        data-client-desc="Enseigne de grande distribution présente en Guadeloupe, proposant produits alimentaires, beauté et mode."
+        data-client-mission="Création de visuels promotionnels et de communication pour les réseaux sociaux de Monoprix Guadeloupe, dans le cadre de mon alternance chez 10Gitallab."
+        data-client-fb="Visuels Facebook pour les promotions, les nouvelles collections et les événements en magasin."
+        data-client-ig="Contenus Instagram attractifs mettant en avant les produits phares et les offres spéciales."
+        data-client-results="Production régulière de contenus promotionnels en cohérence avec la charte nationale Monoprix."
+        data-client-logo="🛒"
+        data-client-img-ig="assets/clients/monoprix/instagram-feed.jpg"
+        data-client-img-fb="assets/clients/monoprix/facebook-post.jpg">
+        <div class="client-logo-wrapper"><div class="client-logo-placeholder">🛒</div></div>
+        <h3 class="client-name">Monoprix</h3>
+        <p class="client-agency-badge">🏢 Client via 10Gitallab</p>
+        <p class="client-tag">Grande distribution</p>
+        <p class="client-preview">Communication promotionnelle & réseaux sociaux</p>
+        <div class="client-cta">Voir la mission →</div>
+      </div>
+
+      <div class="client-card reveal-up" style="--delay:.32s"
+        data-client-name="Eurorepar"
+        data-client-desc="Réseau de garages automobiles multi-marques, filiale du groupe Stellantis, présent en Guadeloupe."
+        data-client-mission="Création de visuels pour la communication digitale du réseau Eurorepar en Guadeloupe, dans le cadre de mon alternance chez 10Gitallab. Sur ce client, je gère uniquement la page Facebook."
+        data-client-fb="Publications Facebook présentant les offres de service, les promotions et les conseils automobiles."
+        data-client-ig=""
+        data-client-results="Amélioration de la présence Facebook locale. Visuels professionnels adaptés au secteur automobile."
+        data-client-logo="🚗"
+        data-client-img-fb="assets/clients/eurorepar/facebook-post.jpg">
+        <div class="client-logo-wrapper"><div class="client-logo-placeholder">🚗</div></div>
+        <h3 class="client-name">Eurorepar</h3>
+        <p class="client-agency-badge">🏢 Client via 10Gitallab</p>
+        <p class="client-tag">Réseau automobile · Facebook uniquement</p>
+        <p class="client-preview">Communication digitale & réseau de garages</p>
+        <div class="client-cta">Voir la mission →</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section services" id="services" aria-label="Mes services">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <p class="section-eyebrow">Ce que je propose</p>
+      <h2 class="section-title">Mes <em>services</em></h2>
+      <div class="section-divider" aria-hidden="true"></div>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal-up">
+        <div class="service-icon-wrapper"><div class="service-icon">🎨</div></div>
+        <h3>Design Graphique</h3>
+        <p>Création visuelle pour tous vos supports, print et numérique, avec un souci du détail constant.</p>
+        <ul class="service-list"><li>Affiches & flyers</li><li>Supports print</li><li>Illustrations</li></ul>
+        <div class="service-glow" aria-hidden="true"></div>
+      </div>
+      <div class="service-card reveal-up" style="--delay:.1s">
+        <div class="service-icon-wrapper"><div class="service-icon">💎</div></div>
+        <h3>Identité visuelle</h3>
+        <p>Création d'identités visuelles fortes et cohérentes reflétant les valeurs de votre marque.</p>
+        <ul class="service-list"><li>Création de logo</li><li>Charte graphique</li><li>Guide de style</li></ul>
+        <div class="service-glow" aria-hidden="true"></div>
+      </div>
+      <div class="service-card reveal-up" style="--delay:.2s">
+        <div class="service-icon-wrapper"><div class="service-icon">📱</div></div>
+        <h3>Réseaux sociaux</h3>
+        <p>Production de contenus visuels engageants pour Facebook, Instagram et autres plateformes digitales.</p>
+        <ul class="service-list"><li>Visuels Facebook & Instagram</li><li>Templates personnalisés</li><li>Motion design</li></ul>
+        <div class="service-glow" aria-hidden="true"></div>
+      </div>
+      <div class="service-card reveal-up" style="--delay:.3s">
+        <div class="service-icon-wrapper"><div class="service-icon">📐</div></div>
+        <h3>UX/UI Design</h3>
+        <p>Conception d'interfaces intuitives et esthétiques. Maquettes, wireframes et prototypes.</p>
+        <ul class="service-list"><li>Maquettes Figma</li><li>Prototypes interactifs</li><li>Design System</li></ul>
+        <div class="service-glow" aria-hidden="true"></div>
+      </div>
+      <div class="service-card reveal-up" style="--delay:.4s">
+        <div class="service-icon-wrapper"><div class="service-icon">📸</div></div>
+        <h3>Retouche photo</h3>
+        <p>Retouche professionnelle et correction colorimétrique pour tous vos supports visuels.</p>
+        <ul class="service-list"><li>Retouche portrait</li><li>Correction couleurs</li><li>Montage créatif</li></ul>
+        <div class="service-glow" aria-hidden="true"></div>
+      </div>
+      <div class="service-card reveal-up" style="--delay:.5s">
+        <div class="service-icon-wrapper"><div class="service-icon">🌐</div></div>
+        <h3>Web Design</h3>
+        <p>Création de sites web élégants et modernes, centrés sur l'expérience utilisateur.</p>
+        <ul class="service-list"><li>Design responsive</li><li>Landing pages</li><li>Sites vitrines</li></ul>
+        <div class="service-glow" aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="contact" aria-label="Me contacter">
+  <div class="container">
+    <div class="section-header reveal-up">
+      <p class="section-eyebrow">Travaillons ensemble</p>
+      <h2 class="section-title">Me <em>contacter</em></h2>
+      <div class="section-divider" aria-hidden="true"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-infos reveal-left">
+        <div class="contact-info-card">
+          <div class="contact-info-item">
+            <div class="contact-info-icon">📧</div>
+            <div><p class="contact-info-label">Email</p><a href="mailto:charabievaina@gmail.com" class="contact-info-value">charabievaina@gmail.com</a></div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">📞</div>
+            <div><p class="contact-info-label">Téléphone</p><a href="tel:+590690133745" class="contact-info-value">+590 690 13 37 45</a></div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">📍</div>
+            <div><p class="contact-info-label">Localisation</p><p class="contact-info-value">Guadeloupe, France</p></div>
+          </div>
+        </div>
+        <div class="contact-socials">
+          <h3>Retrouvez-moi sur</h3>
+          <div class="contact-social-links">
+            <a href="https://www.instagram.com/eclatdesucces/" target="_blank" rel="noopener noreferrer" class="contact-social">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              Instagram
+            </a>
+            <a href="https://gp.linkedin.com/in/vaina-charabie-517944334" target="_blank" rel="noopener noreferrer" class="contact-social">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form-wrapper reveal-right">
+        <form class="contact-form" id="contactForm" action="https://formsubmit.co/ajax/charabievaina@gmail.com" method="POST" novalidate>
+          <input type="hidden" name="_subject" value="Nouveau message depuis le portfolio" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <div class="form-row">
+            <div class="form-group">
+              <label for="contactPrenom">Prénom *</label>
+              <input type="text" id="contactPrenom" name="prenom" placeholder="Votre prénom" required autocomplete="given-name" />
+            </div>
+            <div class="form-group">
+              <label for="contactNom">Nom *</label>
+              <input type="text" id="contactNom" name="nom" placeholder="Votre nom" required autocomplete="family-name" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="contactEmail">Email *</label>
+            <input type="email" id="contactEmail" name="email" placeholder="votre@email.com" required autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="contactSujet">Sujet</label>
+            <select id="contactSujet" name="sujet">
+              <option value="">Choisissez un sujet</option>
+              <option value="projet">Un projet ensemble</option>
+              <option value="stage">Proposition de stage</option>
+              <option value="alternance">Proposition d'alternance</option>
+              <option value="collaboration">Collaboration créative</option>
+              <option value="autre">Autre</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="contactMessage">Message *</label>
+            <textarea id="contactMessage" name="message" placeholder="Décrivez votre projet ou votre demande..." rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+            <span>Envoyer le message</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+          <div class="form-success" id="formSuccess" role="alert" aria-live="polite" hidden>
+            <span>✅</span><p>Message envoyé avec succès ! Je vous répondrai très bientôt.</p>
+          </div>
+          <div class="form-error" id="formError" role="alert" aria-live="polite" hidden>
+            <span>❌</span><p>Une erreur est survenue. Veuillez réessayer.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="footer-inner">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#accueil" class="footer-logo"><span class="logo-v">V</span>aïna Charabie</a>
+          <p class="footer-tagline">Web Designer & Designer Graphique passionnée par la création numérique. Étudiante BUT MMI — Université des Antilles.</p>
+          <div class="footer-socials" aria-label="Réseaux sociaux">
+            <a href="https://www.instagram.com/lilyrose_graphi_design/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://gp.linkedin.com/in/vaina-charabie-517944334" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+          </div>
+        </div>
+        <nav class="footer-nav" aria-label="Navigation rapide">
+          <h3 class="footer-nav-title">Navigation</h3>
+          <ul role="list">
+            <li><a href="#accueil">Accueil</a></li>
+            <li><a href="#apropos">À propos</a></li>
+            <li><a href="#projets">Projets</a></li>
+            <li><a href="#competences">Compétences</a></li>
+            <li><a href="#clients">Clients</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="footer-contact">
+          <h3 class="footer-nav-title">Contact</h3>
+          <ul role="list">
+            <li><a href="mailto:charabievaina@gmail.com">📧 charabievaina@gmail.com</a></li>
+            <li><a href="tel:+590690133745">📞 +590 690 13 37 45</a></li>
+            <li>📍 Guadeloupe, France</li>
+          </ul>
+          <div class="footer-cv-links">
+            <a href="cv.pdf" target="_blank" rel="noopener noreferrer" class="btn-cv btn-cv-view">Voir mon CV</a>
+            <a href="cv.pdf" download="CV-Vaina-Charabie.pdf" class="btn-cv btn-cv-dl">Télécharger</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Vaïna Charabie — Tous droits réservés</p>
+        <div class="footer-legal">
+          <a href="#" id="mentionsLink">Mentions légales</a>
+          <span aria-hidden="true">·</span>
+          <a href="#" id="politiqueLink">Politique de confidentialité</a>
+        </div>
+      </div>
+      <p class="footer-music-credit">Musique : « Music Box Theme » — Kevin MacLeod (incompetech.com), licence <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- MODALES LÉGALES -->
+<div class="modal" id="mentionsModal" role="dialog" aria-modal="true" aria-label="Mentions légales" hidden>
+  <div class="modal-overlay" id="mentionsOverlay"></div>
+  <div class="modal-content">
+    <button class="modal-close" aria-label="Fermer">✕</button>
+    <h2>Mentions légales</h2>
+    <div class="modal-body">
+      <h3>Éditeur du site</h3>
+      <p>Vaïna Charabie — Étudiante BUT MMI, Université des Antilles, IUT de Saint-Claude<br/>Guadeloupe, France<br/>Email : charabievaina@gmail.com</p>
+      <h3>Hébergement</h3>
+      <p>Ce site est hébergé par GitHub.</p>
+      <h3>Propriété intellectuelle</h3>
+      <p>L'ensemble du contenu de ce site (textes, images, designs, logos) est protégé par le droit d'auteur. Toute reproduction sans autorisation est interdite.</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="politiqueModal" role="dialog" aria-modal="true" aria-label="Politique de confidentialité" hidden>
+  <div class="modal-overlay" id="politiqueOverlay"></div>
+  <div class="modal-content">
+    <button class="modal-close" aria-label="Fermer">✕</button>
+    <h2>Politique de confidentialité</h2>
+    <div class="modal-body">
+      <h3>Collecte des données</h3>
+      <p>Ce site peut collecter des données via le formulaire de contact (prénom, nom, email, message). Ces données sont transmises par e-mail via le service tiers FormSubmit, uniquement pour répondre à vos demandes. Elles ne sont pas stockées dans une base de données.</p>
+      <h3>Vos droits (RGPD)</h3>
+      <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Contactez : charabievaina@gmail.com</p>
+      <h3>Cookies</h3>
+      <p>Ce site utilise un cookie technique pour mémoriser votre préférence de thème. Aucun cookie publicitaire.</p>
+    </div>
+  </div>
+</div>
+
+<!-- MODALE PROJET (étude de cas) -->
+<div class="modal modal-projet" id="projetModal" role="dialog" aria-modal="true" aria-label="Détail du projet" hidden>
+  <div class="modal-overlay" id="projetOverlay"></div>
+  <div class="modal-content modal-content--large">
+    <button class="modal-close" aria-label="Fermer">✕</button>
+    <div id="projetModalContent"></div>
+  </div>
+</div>
+
+<!-- MODALE CLIENT -->
+<div class="modal modal-client" id="clientModal" role="dialog" aria-modal="true" aria-label="Détail client" hidden>
+  <div class="modal-overlay" id="clientOverlay"></div>
+  <div class="modal-content modal-content--large">
+    <button class="modal-close" aria-label="Fermer">✕</button>
+    <div id="clientModalContent"></div>
+  </div>
+</div>
+
+<!-- RETOUR EN HAUT -->
+<button class="back-to-top" id="backToTop" aria-label="Retourner en haut de la page" hidden>
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<script src="script.js"></script>
+</body>
+</html>
