@@ -182,22 +182,18 @@ const MagicMusic = (() => {
 const CursorManager = (() => {
   const cur = document.getElementById('cursor');
   const fol = document.getElementById('cursorFollower');
-  let mx=0, my=0, fx=0, fy=0;
-  function animate() {
-    fx += (mx - fx) * .12; fy += (my - fy) * .12;
-    if (cur) { cur.style.left = mx+'px'; cur.style.top = my+'px'; }
-    if (fol) { fol.style.left = fx+'px'; fol.style.top = fy+'px'; }
-    requestAnimationFrame(animate);
-  }
   function init() {
     if (!cur || !fol) return;
     if (window.matchMedia('(pointer:coarse)').matches) return;
-    document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
+    document.addEventListener('mousemove', e => {
+      const x = e.clientX + 'px', y = e.clientY + 'px';
+      cur.style.left = x; cur.style.top = y;
+      fol.style.left = x; fol.style.top = y;
+    });
     document.querySelectorAll('a,button,.projet-card,.service-card,.tool-card,.filter-btn,.timeline-tab,.client-card').forEach(el => {
       el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
       el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
     });
-    animate();
   }
   return { init };
 })();
