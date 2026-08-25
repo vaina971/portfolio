@@ -325,7 +325,9 @@
       <button class="filter-btn" data-filter="exprimer" role="tab" aria-selected="false" data-en="Express">Exprimer</button>
       <button class="filter-btn" data-filter="developper" role="tab" aria-selected="false" data-en="Develop">Développer</button>
       <button class="filter-btn" data-filter="entreprendre" role="tab" aria-selected="false" data-en="Undertake">Entreprendre</button>
+      <button class="filter-btn" data-filter="projets-personnels" role="tab" aria-selected="false" data-en="Personal projects">Projets personnels</button>
     </div>
+    <div class="filter-definition" id="filterDefinition" role="status" hidden></div>
     <div class="projets-grid" id="projetsGrid">
 
       <!-- Projet 1 — Exprimer -->
@@ -353,8 +355,8 @@
         </div>
       </article>
 
-      <!-- Projet 2 — Exprimer -->
-      <article class="projet-card" data-category="exprimer"
+      <!-- Projet 2 — Exprimer / Projet personnel -->
+      <article class="projet-card" data-category="exprimer projets-personnels"
         data-title="Affiches — MDL Raoul Georges Nicolo"
         data-title-en="Posters — MDL Raoul Georges Nicolo"
         data-desc="Création d'affiches pour la Maison Des Lycéens (MDL) du lycée Raoul Georges Nicolo : castings Miss et Mister, fête de Noël, journée d'élégance."
@@ -369,7 +371,7 @@
         <div class="projet-image-wrapper">
           <img src="assets/projets/affiche1.jpg" alt="Affiches MDL — casting Miss et Mister" class="projet-image" loading="lazy" decoding="async" />
           <div class="projet-overlay"><span class="projet-link" data-en="View case study →">Voir l'étude de cas →</span></div>
-          <div class="projet-category-badge" data-en="Express">Exprimer</div>
+          <div class="projet-category-badge" data-en="Personal project">Projet perso</div>
         </div>
         <div class="projet-info">
           <h3 class="projet-title" data-en="Posters — MDL Raoul Georges Nicolo">Affiches — MDL Raoul Georges Nicolo</h3>
@@ -456,8 +458,8 @@
         </div>
       </article>
 
-      <!-- Projet 6 — Exprimer -->
-      <article class="projet-card" data-category="exprimer"
+      <!-- Projet 6 — Exprimer / Projet personnel -->
+      <article class="projet-card" data-category="exprimer projets-personnels"
         data-title="Communication digitale"
         data-title-en="Digital communication"
         data-desc="Création de visuels Instagram pour la MDL du lycée Raoul Georges Nicolo et propositions de logo pour les réseaux sociaux d'une petite entreprise de crochet."
@@ -472,7 +474,7 @@
         <div class="projet-image-wrapper">
           <img src="assets/projets/comunity1.png" alt="Communication digitale — visuels Instagram" class="projet-image" loading="lazy" decoding="async" />
           <div class="projet-overlay"><span class="projet-link" data-en="View case study →">Voir l'étude de cas →</span></div>
-          <div class="projet-category-badge" data-en="Express">Exprimer</div>
+          <div class="projet-category-badge" data-en="Personal project">Projet perso</div>
         </div>
         <div class="projet-info">
           <h3 class="projet-title" data-en="Digital communication">Communication digitale</h3>
@@ -735,8 +737,8 @@
         data-client-results="Augmentation de la présence visuelle sur les réseaux. Visuels cohérents avec le positionnement luxe de la marque."
         data-client-results-en="Increased visual presence on social media. Visuals consistent with the brand's luxury positioning."
         data-client-logo="🏨"
-        data-client-img-ig="assets/clients/la-toubana/instagram-feed.jpg"
-        data-client-img-fb="assets/clients/la-toubana/facebook-post.jpg"
+        data-client-img-ig="assets/clients/la-toubana/instagram-feed.png"
+        data-client-img-fb="assets/clients/la-toubana/facebook-post.png"
         data-client-instagram="https://www.instagram.com/latoubanahotelandspa/"
         data-client-facebook="https://www.facebook.com/toubana/">
         <div class="client-logo-wrapper"><div class="client-logo-placeholder">🏨</div></div>
@@ -760,8 +762,8 @@
         data-client-results="Production régulière de contenus adaptés à plusieurs établissements. Cohérence visuelle maintenue sur toutes les plateformes."
         data-client-results-en="Regular content production tailored to several properties. Visual consistency maintained across all platforms."
         data-client-logo="🌴"
-        data-client-img-ig="assets/clients/des-hotels-des-iles/instagram-feed.jpg"
-        data-client-img-fb="assets/clients/des-hotels-des-iles/facebook-post.jpg"
+        data-client-img-ig="assets/clients/des-hotels-des-iles/instagram-feed.png"
+        data-client-img-fb="assets/clients/des-hotels-des-iles/facebook-post.png"
         data-client-instagram="https://www.instagram.com/deshotelsetdesiles/"
         data-client-facebook="https://www.facebook.com/deshotelsetdesiles/">
         <div class="client-logo-wrapper"><div class="client-logo-placeholder">🌴</div></div>
@@ -785,8 +787,8 @@
         data-client-results="Visuels cohérents et professionnels renforçant l'identité de la marque sur le digital."
         data-client-results-en="Consistent, professional visuals strengthening the brand's digital identity."
         data-client-logo="🛍️"
-        data-client-img-ig="assets/clients/capes-dole/instagram-feed.jpg"
-        data-client-img-fb="assets/clients/capes-dole/facebook-post.jpg"
+        data-client-img-ig="assets/clients/capes-dole/instagram-feed.png"
+        data-client-img-fb="assets/clients/capes-dole/facebook-post.png"
         data-client-instagram="https://www.instagram.com/capesdole/"
         data-client-facebook="https://www.facebook.com/CAPES.DOLE/">
         <div class="client-logo-wrapper"><div class="client-logo-placeholder">🛍️</div></div>
@@ -810,8 +812,8 @@
         data-client-results="Production régulière de contenus promotionnels en cohérence avec la charte nationale Monoprix."
         data-client-results-en="Regular production of promotional content consistent with Monoprix's national brand guidelines."
         data-client-logo="🛒"
-        data-client-img-ig="assets/clients/monoprix/instagram-feed.jpg"
-        data-client-img-fb="assets/clients/monoprix/facebook-post.jpg"
+        data-client-img-ig="assets/clients/monoprix/instagram-feed.png"
+        data-client-img-fb="assets/clients/monoprix/facebook-post.png"
         data-client-instagram="https://www.instagram.com/monoprixguadeloupe/"
         data-client-facebook="https://www.facebook.com/MonoprixGuadeloupe/">
         <div class="client-logo-wrapper"><div class="client-logo-placeholder">🛒</div></div>
@@ -834,7 +836,7 @@
         data-client-results="Amélioration de la présence Facebook locale. Visuels professionnels adaptés au secteur automobile."
         data-client-results-en="Improved local Facebook presence. Professional visuals suited to the automotive sector."
         data-client-logo="🚗"
-        data-client-img-fb="assets/clients/eurorepar/facebook-post.jpg"
+        data-client-img-fb="assets/clients/eurorepar/facebook-post.png"
         data-client-facebook="https://www.facebook.com/euroreparcarserviceguadeloupe/">
         <div class="client-logo-wrapper"><div class="client-logo-placeholder">🚗</div></div>
         <h3 class="client-name">Eurorepar</h3>

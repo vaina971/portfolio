@@ -282,6 +282,9 @@ body.cursor-hover .cursor-follower{width:52px;height:52px;border-color:var(--cho
 .projets-filters{display:flex;justify-content:center;gap:.625rem;flex-wrap:wrap;margin-bottom:2.5rem}
 .filter-btn{padding:.575rem 1.375rem;border-radius:var(--r-full);border:1.5px solid var(--border);background:transparent;color:var(--txt-m);font-size:.875rem;font-weight:600;transition:all var(--t1)}
 .filter-btn.active,.filter-btn:hover{background:var(--choco);color:#fff;border-color:transparent;box-shadow:0 4px 16px rgba(107,58,42,.25)}
+.filter-definition{max-width:680px;margin:0 auto 2rem;padding:1rem 1.5rem;background:var(--nude);border:1px solid var(--rose);border-radius:var(--r-md);color:var(--choco);font-size:.9rem;font-weight:500;line-height:1.6;text-align:center;animation:filterDefIn .4s var(--ease) both}
+.filter-definition[hidden]{display:none}
+@keyframes filterDefIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
 .projets-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.75rem}
 .projet-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-xs);transition:transform var(--t2) var(--spring),box-shadow var(--t2);cursor:pointer}
 .projet-card:hover{transform:translateY(-8px);box-shadow:var(--sh-lg)}

@@ -357,14 +357,44 @@ const SkillBars = (() => {
    10. FILTRE PROJETS
 ══════════════════════════════════════════════════ */
 const ProjectFilter = (() => {
+  const DEFINITIONS = {
+    fr: {
+      comprendre: "🔍 Comprendre — Analyser un contexte, un public ou une problématique de communication avant de créer : recherche, benchmark, définition des besoins.",
+      concevoir: "🧭 Concevoir — Construire une identité visuelle, une architecture ou une stratégie créative cohérente avant sa réalisation.",
+      exprimer: "🎨 Exprimer — Produire des contenus visuels, graphiques ou audiovisuels qui donnent vie à une idée ou un message.",
+      developper: "💻 Développer — Coder et construire des interfaces ou des sites web fonctionnels, de la structure à l'interactivité.",
+      entreprendre: "🚀 Entreprendre — Piloter un projet de bout en bout : organisation, gestion d'équipe et stratégie de communication."
+    },
+    en: {
+      comprendre: "🔍 Understand — Analyzing a context, an audience or a communication problem before creating: research, benchmarking, defining needs.",
+      concevoir: "🧭 Design — Building a coherent visual identity, architecture or creative strategy before bringing it to life.",
+      exprimer: "🎨 Express — Producing visual, graphic or audiovisual content that brings an idea or message to life.",
+      developper: "💻 Develop — Coding and building functional interfaces or websites, from structure to interactivity.",
+      entreprendre: "🚀 Undertake — Leading a project end-to-end: organization, team management and communication strategy."
+    }
+  };
+
   function init() {
     const btns  = document.querySelectorAll('.filter-btn');
     const cards = document.querySelectorAll('.projet-card');
+    const def   = document.getElementById('filterDefinition');
+    let activeKey = 'all';
+
+    function renderDefinition() {
+      if (!def) return;
+      const lang = I18n.get();
+      const text = DEFINITIONS[lang]?.[activeKey];
+      if (text) { def.textContent = text; def.hidden = false; }
+      else { def.hidden = true; def.textContent = ''; }
+    }
+
     btns.forEach(btn => {
       btn.addEventListener('click', () => {
         btns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
         btn.classList.add('active'); btn.setAttribute('aria-selected','true');
         const f = btn.dataset.filter;
+        activeKey = f;
+        renderDefinition();
         cards.forEach((c,i) => {
           const match = f==='all' || c.dataset.category.split(/\s+/).includes(f);
           c.classList.toggle('hidden', !match);
@@ -373,6 +403,8 @@ const ProjectFilter = (() => {
         });
       });
     });
+
+    document.addEventListener('langchange', renderDefinition);
   }
   return { init };
 })();
