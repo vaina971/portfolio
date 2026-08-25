@@ -455,7 +455,10 @@ body.cursor-hover .cursor-follower{width:52px;height:52px;border-color:var(--cho
 /* Modale client */
 .client-modal-logo{width:80px;height:80px;background:linear-gradient(135deg,var(--nude),var(--rose));border-radius:var(--r-lg);display:flex;align-items:center;justify-content:center;font-size:2.5rem;margin-bottom:1.25rem}
 .client-modal-name{font-family:var(--font-d);font-size:1.75rem;font-weight:700;color:var(--txt);margin-bottom:.5rem}
-.client-modal-tag{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--choco);margin-bottom:1.5rem}
+.client-modal-tag{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--choco);margin-bottom:1.25rem}
+.client-modal-socials{display:flex;gap:.6rem;margin-bottom:1.5rem}
+.client-modal-social{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-full);font-size:.825rem;font-weight:600;color:var(--txt-m);transition:background var(--t1),color var(--t1),transform var(--t1) var(--spring),box-shadow var(--t1)}
+.client-modal-social:hover{background:var(--choco);color:#fff;border-color:transparent;transform:translateY(-2px);box-shadow:var(--sh-sm)}
 .client-modal-media{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.85rem;margin-bottom:1.5rem}
 .client-modal-thumb{padding:0;border:1px solid var(--border);border-radius:var(--r-md);overflow:hidden;cursor:pointer;background:var(--bg-alt);transition:transform var(--t1),box-shadow var(--t1);text-align:left}
 .client-modal-thumb:hover{transform:translateY(-3px);box-shadow:var(--sh-sm)}
@@ -528,7 +531,7 @@ body.cursor-hover .cursor-follower{width:52px;height:52px;border-color:var(--cho
   background:linear-gradient(180deg,var(--rose) 0%,var(--rose-d) 55%,var(--choco-l) 100%);
   box-shadow:0 4px 18px rgba(107,58,42,.18);
   opacity:0;
-  animation:introPetalBloom 1.1s cubic-bezier(.34,1.56,.64,1) forwards;
+  animation:introPetalBloom .92s cubic-bezier(.34,1.56,.64,1) forwards;
   animation-delay:var(--delay)}
 [data-theme="dark"] .intro-petal{background:linear-gradient(180deg,var(--rose) 0%,var(--rose-d) 55%,var(--choco) 100%)}
 @keyframes introPetalBloom{
@@ -539,12 +542,12 @@ body.cursor-hover .cursor-follower{width:52px;height:52px;border-color:var(--cho
 .intro-flower-center{position:absolute;left:50%;top:50%;width:15%;height:15%;transform:translate(-50%,-50%) scale(0);border-radius:50%;
   background:radial-gradient(circle,var(--sand) 0%,var(--choco) 100%);
   box-shadow:0 0 24px rgba(196,149,106,.5);
-  animation:introCenterPop .7s var(--spring) .1s forwards}
+  animation:introCenterPop .58s var(--spring) .08s forwards}
 @keyframes introCenterPop{to{transform:translate(-50%,-50%) scale(1)}}
 .intro-brand{font-family:var(--font-d);font-size:clamp(1.3rem,3.5vw,1.9rem);font-weight:700;color:var(--txt);opacity:0;letter-spacing:.02em;
-  animation:introFadeUp 1s var(--ease) 3.2s forwards}
+  animation:introFadeUp .85s var(--ease) 2.65s forwards}
 .intro-tagline{font-family:var(--font-b);font-size:.8rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--choco);opacity:0;
-  animation:introFadeUp 1s var(--ease) 3.8s forwards}
+  animation:introFadeUp .85s var(--ease) 3.15s forwards}
 @keyframes introFadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 .intro-skip{position:fixed;bottom:1.5rem;right:1.5rem;z-index:2;padding:.55rem 1.1rem;font-size:.8rem;font-weight:600;color:var(--txt-m);
   background:var(--surface-2);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:var(--r-full);
