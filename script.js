@@ -94,7 +94,7 @@ const IntroAnimation = (() => {
     sessionStorage.setItem(KEY, '1');
     const cleanup = () => { overlay.hidden = true; };
     if (reduced) cleanup();
-    else setTimeout(cleanup, 950);
+    else setTimeout(cleanup, 1000);
   }
 
   function init() {
@@ -114,7 +114,7 @@ const IntroAnimation = (() => {
     const skip = document.getElementById('introSkip');
     skip?.addEventListener('click', finish);
     document.addEventListener('keydown', e => { if (e.key === 'Escape') finish(); }, { once: true });
-    autoTimer = setTimeout(finish, 2600);
+    autoTimer = setTimeout(finish, 6000);
   }
 
   return { init };
