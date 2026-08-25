@@ -139,8 +139,8 @@ const ThemeManager = (() => {
 
 /* ══════════════════════════════════════════════════
    1b. MUSIQUE FÉÉRIQUE
-   « Music Box Theme » — Kevin MacLeod (incompetech.com)
-   Licence CC BY 4.0 — creativecommons.org/licenses/by/4.0
+   « Dream Pop Lofi » — DRAGON-STUDIO (Pixabay)
+   Pixabay Content License — pixabay.com/service/license-summary/
 ══════════════════════════════════════════════════ */
 const MagicMusic = (() => {
   let audio, playing = false;
@@ -148,7 +148,7 @@ const MagicMusic = (() => {
   function init() {
     const btn = document.getElementById('musicToggle');
     if (!btn) return;
-    audio = new Audio('assets/audio/musique-feerique.mp3');
+    audio = new Audio('assets/audio/dream-pop-lofi.mp3');
     audio.loop = true;
     audio.volume = 0;
     audio.preload = 'none';
