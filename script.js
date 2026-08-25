@@ -5,6 +5,122 @@
 'use strict';
 
 /* ══════════════════════════════════════════════════
+   0. I18N — FR / EN
+══════════════════════════════════════════════════ */
+const I18n = (() => {
+  const KEY = 'vaina-lang';
+  let lang = 'fr';
+
+  const META = {
+    fr: {
+      title: 'Vaïna Charabie — Étudiante en BUT MMI & Future Graphiste',
+      desc: "Vaïna Charabie — Web Designer & Designer Graphique. Portfolio créatif d'une étudiante BUT MMI passionnée par la création visuelle."
+    },
+    en: {
+      title: 'Vaïna Charabie — BUT MMI Student & Future Graphic Designer',
+      desc: 'Vaïna Charabie — Web Designer & Graphic Designer. Creative portfolio of an MMI student passionate about visual creation.'
+    }
+  };
+
+  function applyStatic() {
+    document.querySelectorAll('[data-en]').forEach(el => {
+      if (el.dataset.fr === undefined) el.dataset.fr = el.innerHTML;
+      el.innerHTML = lang === 'en' ? el.dataset.en : el.dataset.fr;
+    });
+    document.querySelectorAll('[data-en-aria]').forEach(el => {
+      if (el.dataset.frAria === undefined) el.dataset.frAria = el.getAttribute('aria-label') || '';
+      el.setAttribute('aria-label', lang === 'en' ? el.dataset.enAria : el.dataset.frAria);
+    });
+    document.querySelectorAll('[data-en-placeholder]').forEach(el => {
+      if (el.dataset.frPlaceholder === undefined) el.dataset.frPlaceholder = el.getAttribute('placeholder') || '';
+      el.setAttribute('placeholder', lang === 'en' ? el.dataset.enPlaceholder : el.dataset.frPlaceholder);
+    });
+  }
+
+  function applyMeta() {
+    const m = META[lang];
+    document.title = m.title;
+    document.querySelector('meta[name="description"]')?.setAttribute('content', m.desc);
+    document.querySelector('meta[property="og:title"]')?.setAttribute('content', m.title);
+    document.querySelector('meta[property="og:description"]')?.setAttribute('content', m.desc);
+    document.querySelector('meta[property="og:locale"]')?.setAttribute('content', lang === 'en' ? 'en_US' : 'fr_FR');
+    document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', m.title);
+    document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', m.desc);
+  }
+
+  function apply(l, { persist = true } = {}) {
+    lang = l;
+    document.documentElement.lang = lang;
+    if (persist) localStorage.setItem(KEY, lang);
+    applyStatic();
+    applyMeta();
+    const cur = document.getElementById('langCurrent');
+    if (cur) cur.textContent = lang === 'en' ? 'EN' : 'FR';
+    document.getElementById('langToggle')?.setAttribute('aria-label', lang === 'en' ? 'Switch to French' : 'Passer en anglais');
+    const mobileToggle = document.getElementById('mobileLangToggle');
+    if (mobileToggle) mobileToggle.textContent = lang === 'en' ? '🇫🇷 Passer en français' : '🇬🇧 Switch to English';
+    document.dispatchEvent(new CustomEvent('langchange', { detail: { lang } }));
+  }
+
+  function init() {
+    const saved = localStorage.getItem(KEY);
+    apply(saved === 'en' ? 'en' : 'fr', { persist: false });
+    const toggle = () => apply(lang === 'fr' ? 'en' : 'fr');
+    document.getElementById('langToggle')?.addEventListener('click', toggle);
+    document.getElementById('mobileLangToggle')?.addEventListener('click', toggle);
+  }
+
+  return { init, get: () => lang };
+})();
+
+/* ══════════════════════════════════════════════════
+   0b. INTRO — FLEUR STYLISÉE
+══════════════════════════════════════════════════ */
+const IntroAnimation = (() => {
+  const KEY = 'vaina-intro-seen';
+  let overlay, finished = false, autoTimer = null;
+
+  function lockScroll(lock) {
+    document.documentElement.style.overflow = lock ? 'hidden' : '';
+  }
+
+  function finish() {
+    if (finished || !overlay) return;
+    finished = true;
+    clearTimeout(autoTimer);
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    overlay.classList.add('is-opening');
+    lockScroll(false);
+    sessionStorage.setItem(KEY, '1');
+    const cleanup = () => { overlay.hidden = true; };
+    if (reduced) cleanup();
+    else setTimeout(cleanup, 950);
+  }
+
+  function init() {
+    overlay = document.getElementById('introOverlay');
+    if (!overlay) return;
+
+    if (sessionStorage.getItem(KEY) === '1') {
+      finished = true;
+      overlay.hidden = true;
+      return;
+    }
+
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced) { finish(); return; }
+
+    lockScroll(true);
+    const skip = document.getElementById('introSkip');
+    skip?.addEventListener('click', finish);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') finish(); }, { once: true });
+    autoTimer = setTimeout(finish, 2600);
+  }
+
+  return { init };
+})();
+
+/* ══════════════════════════════════════════════════
    1. THÈME
 ══════════════════════════════════════════════════ */
 const ThemeManager = (() => {
@@ -145,22 +261,30 @@ const NameAnimation = (() => {
    6. TYPEWRITER
 ══════════════════════════════════════════════════ */
 const Typewriter = (() => {
-  const WORDS = ['Designer Graphique','Créatrice Visuelle','UX/UI Designer','Étudiante MMI','Passionnée du Design'];
+  const WORDS = {
+    fr: ['Designer Graphique','Créatrice Visuelle','UX/UI Designer','Étudiante MMI','Passionnée du Design'],
+    en: ['Graphic Designer','Visual Creator','UX/UI Designer','MMI Student','Design Enthusiast']
+  };
   let wi=0, ci=0, del=false, tid=null;
+  function words() { return WORDS[I18n.get()] || WORDS.fr; }
   function type() {
     const el = document.getElementById('typewriter');
     if (!el) return;
-    const w = WORDS[wi];
+    const list = words();
+    const w = list[wi % list.length];
     if (!del) {
       el.textContent = w.slice(0, ci+1); ci++;
       if (ci === w.length) { del=true; tid=setTimeout(type,2200); return; }
     } else {
       el.textContent = w.slice(0, ci-1); ci--;
-      if (ci === 0) { del=false; wi=(wi+1)%WORDS.length; }
+      if (ci === 0) { del=false; wi=(wi+1)%list.length; }
     }
     tid = setTimeout(type, del ? 55 : 90);
   }
-  function init() { setTimeout(type, 1500); }
+  function init() {
+    setTimeout(type, 1500);
+    document.addEventListener('langchange', () => { wi = 0; ci = 0; del = false; });
+  }
   return { init };
 })();
 
@@ -370,6 +494,15 @@ const Modals = (() => {
   function init() {
     setup('mentionsLink','mentionsModal','mentionsOverlay');
     setup('politiqueLink','politiqueModal','politiqueOverlay');
+    // consentPolicyLink lives inside i18n-swapped markup (recreated on language toggle) — use delegation
+    document.addEventListener('click', e => {
+      if (!e.target.closest('#consentPolicyLink')) return;
+      e.preventDefault();
+      const modal = document.getElementById('politiqueModal');
+      modal.hidden = false;
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => modal.querySelector('.modal-close')?.focus(), 100);
+    });
   }
   return { init };
 })();
@@ -389,9 +522,23 @@ const ProjetModals = (() => {
     close?.addEventListener('click', shut);
     modal?.addEventListener('keydown', e => { if(e.key==='Escape') shut(); });
 
+    const LABELS = {
+      fr: { desc:'📋 Description', objectifs:'🎯 Objectifs', outils:'🛠️ Outils utilisés', competences:'💡 Compétences développées', voir:'Voir le projet en ligne →', dl:'Télécharger', fullscreen:'Ouvrir en plein écran ↗', doc:'document complet', enlarge:"Agrandir l'image" },
+      en: { desc:'📋 Description', objectifs:'🎯 Objectives', outils:'🛠️ Tools used', competences:'💡 Skills developed', voir:'View project online →', dl:'Download', fullscreen:'Open fullscreen ↗', doc:'full document', enlarge:'Enlarge image' }
+    };
+
     document.querySelectorAll('.projet-card').forEach(card => {
       card.addEventListener('click', () => {
         const d = card.dataset;
+        const lang = I18n.get();
+        const L = LABELS[lang] || LABELS.fr;
+        const pick = (fr, en) => (lang === 'en' && en) ? en : fr;
+        const title = pick(d.title, d.titleEn);
+        const desc = pick(d.desc, d.descEn);
+        const objectifs = pick(d.objectifs, d.objectifsEn);
+        const competences = pick(d.competences, d.competencesEn);
+        const downloadLabel = pick(d.downloadLabel, d.downloadLabelEn) || L.dl;
+        const category = pick(card.querySelector('.projet-category-badge')?.dataset.fr ?? card.querySelector('.projet-category-badge')?.textContent, card.querySelector('.projet-category-badge')?.dataset.en);
         const tools = d.outils ? d.outils.split(',').map(t=>`<span>${t.trim()}</span>`).join('') : '';
         const files = (d.images !== undefined ? d.images : 'vaina.png').split(',').map(s=>s.trim()).filter(Boolean);
         const isDrive = src => /drive\.google\.com\/file\/d\//.test(src);
@@ -404,35 +551,35 @@ const ProjetModals = (() => {
               const id = src.match(/\/d\/([^/]+)/)?.[1];
               return `<iframe class="projet-modal-video projet-modal-video-drive" src="https://drive.google.com/file/d/${id}/preview" allow="autoplay" allowfullscreen></iframe>`;
             }).join('');
-        const gallery = images.map(src => `<button type="button" class="projet-modal-thumb" data-lightbox-src="${src}" aria-label="Agrandir l'image"><img src="${src}" alt="${d.title}" loading="lazy" onerror="this.closest('.projet-modal-thumb').style.display='none'" /></button>`).join('');
-        const docViewer = d.doc ? `<div class="projet-modal-doc-wrap"><iframe class="projet-modal-doc" src="${d.doc}" title="${d.title} — document complet"></iframe><a href="${d.doc}" target="_blank" rel="noopener noreferrer" class="projet-modal-doc-expand">Ouvrir en plein écran ↗</a></div>` : '';
+        const gallery = images.map(src => `<button type="button" class="projet-modal-thumb" data-lightbox-src="${src}" aria-label="${L.enlarge}"><img src="${src}" alt="${title}" loading="lazy" onerror="this.closest('.projet-modal-thumb').style.display='none'" /></button>`).join('');
+        const docViewer = d.doc ? `<div class="projet-modal-doc-wrap"><iframe class="projet-modal-doc" src="${d.doc}" title="${title} — ${L.doc}"></iframe><a href="${d.doc}" target="_blank" rel="noopener noreferrer" class="projet-modal-doc-expand">${L.fullscreen}</a></div>` : '';
         content.innerHTML = `
           <div class="projet-modal-header">
-            <p class="projet-modal-category">${card.querySelector('.projet-category-badge')?.textContent||''}</p>
-            <h2 class="projet-modal-title">${d.title||'Projet'}</h2>
+            <p class="projet-modal-category">${category||''}</p>
+            <h2 class="projet-modal-title">${title||'Projet'}</h2>
           </div>
           ${docViewer}
           ${videoPlayers ? `<div class="projet-modal-videos">${videoPlayers}</div>` : ''}
           <div class="projet-modal-gallery">${gallery}</div>
           <div class="projet-modal-section" style="margin-top:1.5rem">
-            <h4>📋 Description</h4>
-            <p>${d.desc||''}</p>
+            <h4>${L.desc}</h4>
+            <p>${desc||''}</p>
           </div>
           <div class="projet-modal-section">
-            <h4>🎯 Objectifs</h4>
-            <p>${d.objectifs||''}</p>
+            <h4>${L.objectifs}</h4>
+            <p>${objectifs||''}</p>
           </div>
           <div class="projet-modal-section">
-            <h4>🛠️ Outils utilisés</h4>
+            <h4>${L.outils}</h4>
             <div class="projet-modal-tools">${tools}</div>
           </div>
           <div class="projet-modal-section">
-            <h4>💡 Compétences développées</h4>
-            <p>${d.competences||''}</p>
+            <h4>${L.competences}</h4>
+            <p>${competences||''}</p>
           </div>
           <div class="projet-modal-actions">
-            ${d.lien ? `<a href="${d.lien}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display:inline-flex">Voir le projet en ligne →</a>` : ''}
-            ${d.download ? `<a href="${d.download}" download class="btn btn-secondary" style="display:inline-flex">${d.downloadLabel || 'Télécharger'}</a>` : ''}
+            ${d.lien ? `<a href="${d.lien}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display:inline-flex">${L.voir}</a>` : ''}
+            ${d.download ? `<a href="${d.download}" download class="btn btn-secondary" style="display:inline-flex">${downloadLabel}</a>` : ''}
           </div>
         `;
         modal.hidden = false;
@@ -459,15 +606,28 @@ const ClientModals = (() => {
     close?.addEventListener('click', shut);
     modal?.addEventListener('keydown', e => { if(e.key==='Escape') shut(); });
 
+    const LABELS = {
+      fr: { ig:'📷 Aperçu du feed Instagram', fb:'📘 Aperçu Facebook', enlarge:'Agrandir', mission:'Mission : Création de contenus visuels', both:'Facebook & Instagram', fbOnly:'Facebook', via:'Client via 10Gitallab', presentation:'🏢 Présentation', maMission:'🎯 Ma mission', visuelsFb:'📘 Visuels Facebook', visuelsIg:'📷 Visuels Instagram', resultats:'✅ Résultats obtenus' },
+      en: { ig:'📷 Instagram feed preview', fb:'📘 Facebook preview', enlarge:'Enlarge', mission:'Mission: Creating visual content for', both:'Facebook & Instagram', fbOnly:'Facebook', via:'Client via 10Gitallab', presentation:'🏢 Overview', maMission:'🎯 My mission', visuelsFb:'📘 Facebook visuals', visuelsIg:'📷 Instagram visuals', resultats:'✅ Results achieved' }
+    };
+
     document.querySelectorAll('.client-card').forEach(card => {
       card.addEventListener('click', () => {
         const d = card.dataset;
+        const lang = I18n.get();
+        const L = LABELS[lang] || LABELS.fr;
+        const pick = (fr, en) => (lang === 'en' && en) ? en : fr;
         const hasIg = !!d.clientIg;
+        const desc = pick(d.clientDesc, d.clientDescEn);
+        const mission = pick(d.clientMission, d.clientMissionEn);
+        const fb = pick(d.clientFb, d.clientFbEn);
+        const ig = pick(d.clientIg, d.clientIgEn);
+        const results = pick(d.clientResults, d.clientResultsEn);
         const media = [];
-        if (hasIg && d.clientImgIg) media.push({ src: d.clientImgIg, label: '📷 Aperçu du feed Instagram' });
-        if (d.clientImgFb) media.push({ src: d.clientImgFb, label: '📘 Aperçu Facebook' });
+        if (hasIg && d.clientImgIg) media.push({ src: d.clientImgIg, label: L.ig });
+        if (d.clientImgFb) media.push({ src: d.clientImgFb, label: L.fb });
         const mediaHtml = media.map(m => `
-          <button type="button" class="client-modal-thumb" data-lightbox-src="${m.src}" aria-label="Agrandir ${m.label}">
+          <button type="button" class="client-modal-thumb" data-lightbox-src="${m.src}" aria-label="${L.enlarge} ${m.label}">
             <img src="${m.src}" alt="${m.label} — ${d.clientName||''}" loading="lazy" />
             <span>${m.label}</span>
           </button>
@@ -475,28 +635,28 @@ const ClientModals = (() => {
         content.innerHTML = `
           <div class="client-modal-logo">${d.clientLogo||'🏢'}</div>
           <h2 class="client-modal-name">${d.clientName||'Client'}</h2>
-          <p class="client-modal-tag">Mission : Création de contenus visuels ${hasIg ? 'Facebook & Instagram' : 'Facebook'} · Client via 10Gitallab</p>
+          <p class="client-modal-tag">${L.mission} ${hasIg ? L.both : L.fbOnly} · ${L.via}</p>
           ${mediaHtml ? `<div class="client-modal-media">${mediaHtml}</div>` : ''}
           <div class="client-modal-section">
-            <h4>🏢 Présentation</h4>
-            <p>${d.clientDesc||''}</p>
+            <h4>${L.presentation}</h4>
+            <p>${desc||''}</p>
           </div>
           <div class="client-modal-section">
-            <h4>🎯 Ma mission</h4>
-            <p>${d.clientMission||''}</p>
+            <h4>${L.maMission}</h4>
+            <p>${mission||''}</p>
           </div>
           <div class="client-modal-section">
-            <h4>📘 Visuels Facebook</h4>
-            <p>${d.clientFb||''}</p>
+            <h4>${L.visuelsFb}</h4>
+            <p>${fb||''}</p>
           </div>
           ${hasIg ? `
           <div class="client-modal-section">
-            <h4>📷 Visuels Instagram</h4>
-            <p>${d.clientIg}</p>
+            <h4>${L.visuelsIg}</h4>
+            <p>${ig}</p>
           </div>` : ''}
           <div class="client-modal-results">
-            <h4>✅ Résultats obtenus</h4>
-            <p>${d.clientResults||''}</p>
+            <h4>${L.resultats}</h4>
+            <p>${results||''}</p>
           </div>
         `;
         modal.hidden = false;
@@ -687,13 +847,28 @@ const LazyImages = (() => {
    22. SKIP LINK
 ══════════════════════════════════════════════════ */
 const SkipLink = (() => {
+  const TXT = { fr: 'Aller au contenu principal', en: 'Skip to main content' };
   function init() {
     const s=document.createElement('a');
-    s.href='#main-content'; s.textContent='Aller au contenu principal';
+    s.href='#main-content'; s.textContent=TXT[I18n.get()] || TXT.fr;
     s.style.cssText='position:fixed;top:-100px;left:1rem;background:var(--choco);color:#fff;padding:.75rem 1.5rem;border-radius:0 0 16px 16px;font-weight:700;z-index:9999;transition:top .2s';
     s.addEventListener('focus',()=>s.style.top='0');
     s.addEventListener('blur',()=>s.style.top='-100px');
     document.body.prepend(s);
+    document.addEventListener('langchange', e => { s.textContent = TXT[e.detail.lang] || TXT.fr; });
+  }
+  return { init };
+})();
+
+/* ══════════════════════════════════════════════════
+   22b. ANNÉE FOOTER
+══════════════════════════════════════════════════ */
+const FooterYear = (() => {
+  function init() {
+    const el = document.getElementById('footerYear');
+    if (!el) return;
+    const start = 2025, now = new Date().getFullYear();
+    el.textContent = now > start ? `${start}–${now}` : String(start);
   }
   return { init };
 })();
@@ -702,6 +877,9 @@ const SkipLink = (() => {
    INIT GLOBAL
 ══════════════════════════════════════════════════ */
 function initAll() {
+  I18n.init();
+  IntroAnimation.init();
+  FooterYear.init();
   ThemeManager.init();
   MagicMusic.init();
   CursorManager.init();

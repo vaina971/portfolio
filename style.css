@@ -122,6 +122,11 @@ body.cursor-hover .cursor-follower{width:52px;height:52px;border-color:var(--cho
 .theme-icon.moon{opacity:0;transform:rotate(-90deg)}
 [data-theme="dark"] .theme-icon.sun{opacity:0;transform:rotate(90deg)}
 [data-theme="dark"] .theme-icon.moon{opacity:1;transform:rotate(0)}
+.lang-toggle{width:44px;height:44px;border-radius:var(--r-full);display:flex;align-items:center;justify-content:center;background:var(--surface);border:1px solid var(--border);transition:transform var(--t1) var(--spring),border-color var(--t1)}
+.lang-toggle:hover{transform:scale(1.08);border-color:var(--choco)}
+.lang-current{font-size:.72rem;font-weight:800;letter-spacing:.03em;color:var(--choco)}
+.mobile-lang-toggle{margin-top:.5rem;align-self:flex-start;padding:.65rem 1.1rem;border-radius:var(--r-full);background:var(--bg-alt);border:1px solid var(--border);color:var(--txt);font-weight:600;font-size:.875rem;transition:background var(--t1),color var(--t1)}
+.mobile-lang-toggle:hover{background:var(--choco);color:#fff}
 .music-toggle{width:44px;height:44px;border-radius:var(--r-full);display:flex;align-items:center;justify-content:center;background:var(--surface);border:1px solid var(--border);font-size:1.1rem;position:relative;overflow:hidden;transition:transform var(--t1) var(--spring)}
 .music-toggle:hover{transform:scale(1.08)}
 .music-toggle.is-playing{animation:musicPulse 1.8s ease-in-out infinite}
@@ -367,6 +372,11 @@ body.cursor-hover .cursor-follower{width:52px;height:52px;border-color:var(--cho
 .form-group input::placeholder,.form-group textarea::placeholder{color:var(--txt-l)}
 .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--choco);box-shadow:0 0 0 3px rgba(107,58,42,.12)}
 .form-group textarea{resize:vertical;min-height:130px}
+.form-consent{display:flex;align-items:flex-start;gap:.65rem}
+.form-consent input[type="checkbox"]{width:18px;height:18px;flex-shrink:0;margin-top:.15rem;accent-color:var(--choco);cursor:pointer}
+.form-consent label{font-size:.8rem;color:var(--txt-m);line-height:1.55;text-transform:none;font-weight:400;letter-spacing:normal}
+.form-consent label a{color:var(--choco);font-weight:600;text-decoration:underline}
+.form-consent label a:hover{color:var(--sand)}
 .form-success{display:flex;align-items:center;gap:.75rem;background:#dcfce7;border:1px solid #86efac;border-radius:var(--r-md);padding:1rem 1.25rem;font-size:.9rem;font-weight:500;color:#15803d}
 .form-error{display:flex;align-items:center;gap:.75rem;background:#fee2e2;border:1px solid #fca5a5;border-radius:var(--r-md);padding:1rem 1.25rem;font-size:.9rem;font-weight:500;color:#dc2626}
 .form-success[hidden],.form-error[hidden]{display:none}
@@ -503,6 +513,54 @@ body.cursor-hover .cursor-follower{width:52px;height:52px;border-color:var(--cho
   .timeline{padding-left:1.75rem}
   .modal-content{padding:1.75rem 1.25rem}
   .back-to-top{bottom:1rem;right:1rem;width:44px;height:44px}
+}
+
+/* ── 23b. INTRO — FLEUR STYLISÉE ──────────────────────────── */
+.intro-overlay{position:fixed;inset:0;z-index:10000;display:flex;align-items:center;justify-content:center;overflow:hidden;transition:opacity .9s var(--ease)}
+.intro-overlay[hidden]{display:none}
+.intro-bg{position:absolute;inset:0;background:radial-gradient(circle at 50% 45%,var(--bg-alt) 0%,var(--bg) 55%,var(--nude) 100%);transition:opacity .9s var(--ease)}
+.intro-stage{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:.6rem;transition:opacity .7s var(--ease),transform .9s cubic-bezier(.5,0,.75,0)}
+.intro-flower{position:relative;width:min(38vw,220px);height:min(38vw,220px);margin-bottom:.5rem}
+.intro-petal{position:absolute;left:50%;top:50%;width:22%;height:52%;margin-left:-11%;margin-top:-52%;
+  transform-origin:50% 100%;
+  transform:rotate(var(--angle)) scale(0);
+  border-radius:50% 50% 50% 50% / 62% 62% 38% 38%;
+  background:linear-gradient(180deg,var(--rose) 0%,var(--rose-d) 55%,var(--choco-l) 100%);
+  box-shadow:0 4px 18px rgba(107,58,42,.18);
+  opacity:0;
+  animation:introPetalBloom .85s cubic-bezier(.34,1.56,.64,1) forwards;
+  animation-delay:var(--delay)}
+[data-theme="dark"] .intro-petal{background:linear-gradient(180deg,var(--rose) 0%,var(--rose-d) 55%,var(--choco) 100%)}
+@keyframes introPetalBloom{
+  0%{transform:rotate(var(--angle)) scale(0);opacity:0}
+  55%{opacity:1}
+  100%{transform:rotate(var(--angle)) scale(1);opacity:1}
+}
+.intro-flower-center{position:absolute;left:50%;top:50%;width:15%;height:15%;transform:translate(-50%,-50%) scale(0);border-radius:50%;
+  background:radial-gradient(circle,var(--sand) 0%,var(--choco) 100%);
+  box-shadow:0 0 24px rgba(196,149,106,.5);
+  animation:introCenterPop .5s var(--spring) .05s forwards}
+@keyframes introCenterPop{to{transform:translate(-50%,-50%) scale(1)}}
+.intro-brand{font-family:var(--font-d);font-size:clamp(1.3rem,3.5vw,1.9rem);font-weight:700;color:var(--txt);opacity:0;letter-spacing:.02em;
+  animation:introFadeUp .8s var(--ease) 1s forwards}
+.intro-tagline{font-family:var(--font-b);font-size:.8rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--choco);opacity:0;
+  animation:introFadeUp .8s var(--ease) 1.2s forwards}
+@keyframes introFadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.intro-skip{position:fixed;bottom:1.5rem;right:1.5rem;z-index:2;padding:.55rem 1.1rem;font-size:.8rem;font-weight:600;color:var(--txt-m);
+  background:var(--surface-2);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:var(--r-full);
+  opacity:0;animation:introFadeUp .6s var(--ease) .6s forwards;transition:opacity .3s var(--ease),color .2s,border-color .2s,transform .2s var(--spring)}
+.intro-skip:hover{color:var(--choco);border-color:var(--choco);transform:translateY(-2px)}
+.intro-overlay.is-opening{opacity:0;pointer-events:none}
+.intro-overlay.is-opening .intro-stage{opacity:0;transform:scale(16)}
+.intro-overlay.is-opening .intro-skip{opacity:0}
+@media(prefers-reduced-motion:reduce){
+  .intro-overlay{transition:opacity .25s linear}
+  .intro-petal,.intro-flower-center,.intro-brand,.intro-tagline,.intro-skip{animation:none;opacity:1;transform:none}
+  .intro-petal{transform:rotate(var(--angle)) scale(1)}
+  .intro-flower-center{transform:translate(-50%,-50%) scale(1)}
+}
+@media(max-width:480px){
+  .intro-skip{bottom:1rem;right:1rem;padding:.5rem .9rem;font-size:.75rem}
 }
 
 /* ── 23. ACCESSIBILITÉ ────────────────────────────────────── */
