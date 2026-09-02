@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Tropical Beauty — Maquette interactive (projet étudiant)</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --green:#2F4A34; --green-d:#1E3223; --terracotta:#E08E5B; --terracotta-d:#C9713C;
+    --cream:#FBF3E7; --ink:#20301F; --ink-m:#4B5A45;
+    --font-serif:'Playfair Display',Georgia,serif; --font-script:'Dancing Script',cursive; --font-b:'DM Sans',system-ui,sans-serif;
+  }
+  html{scroll-behavior:smooth}
+  body{font-family:var(--font-b);color:var(--ink);background:var(--cream);line-height:1.6}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  .container{max-width:1100px;margin:0 auto;padding:0 1.5rem}
+
+  .demo-banner{background:var(--green-d);color:#fff;text-align:center;font-size:.8rem;padding:.6rem 1rem;line-height:1.5}
+  .demo-banner a{text-decoration:underline;font-weight:600}
+
+  .nav-wrap{padding:1rem 1.5rem 0}
+  .nav{max-width:1100px;margin:0 auto;background:var(--green);border-radius:999px;display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.75rem;color:#fff;box-shadow:0 8px 24px rgba(31,50,35,.25)}
+  .nav-about{font-size:.9rem;font-weight:500;opacity:.9}
+  .nav-logo{font-family:var(--font-serif);font-weight:700;font-size:1.15rem;letter-spacing:.02em}
+  .nav-socials{display:flex;gap:.9rem;font-size:1.1rem}
+
+  .hero{position:relative;margin:1.25rem 1.5rem 0;border-radius:20px;overflow:hidden;min-height:min(70vh,560px);display:flex;align-items:center;justify-content:center;text-align:center;
+    background:radial-gradient(120% 120% at 30% 20%,#8a5a3c 0%,#4a3324 45%,#241a13 100%)}
+  .hero::before{content:'';position:absolute;inset:0;background:
+    radial-gradient(circle at 15% 85%,rgba(224,142,91,.35),transparent 55%),
+    radial-gradient(circle at 85% 15%,rgba(47,74,52,.45),transparent 55%)}
+  .hero-inner{position:relative;z-index:1;padding:2rem}
+  .hero-title{font-family:var(--font-serif);font-weight:700;font-size:clamp(2.5rem,8vw,5rem);color:#fff;line-height:.95}
+  .hero-title em{font-family:var(--font-script);font-style:normal;font-weight:700;display:block;font-size:1.3em;color:#fff;margin-top:.1em}
+  .hero-sub{margin-top:1.25rem;color:rgba(255,255,255,.85);font-size:1rem;max-width:420px;margin-inline:auto}
+
+  .services-nav{background:var(--terracotta);padding:1rem 1.5rem;margin:0 1.5rem;border-radius:0 0 16px 16px}
+  .services-nav ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem 1.75rem;max-width:1100px;margin:0 auto}
+  .services-nav a{font-size:.85rem;font-weight:600;color:#3a2313;transition:opacity .2s}
+  .services-nav a:hover{opacity:.65}
+
+  section{padding:clamp(3rem,7vw,5rem) 0}
+  .section-title{font-family:var(--font-serif);font-weight:700;font-size:clamp(1.75rem,4vw,2.5rem);color:var(--green);text-align:center;margin-bottom:2.5rem}
+
+  .flagship-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem}
+  .flagship-card{text-align:center}
+  .flagship-photo{aspect-ratio:1/1;border-radius:16px;background:linear-gradient(135deg,var(--terracotta),var(--green));display:flex;align-items:center;justify-content:center;font-size:2.5rem;margin-bottom:1rem}
+  .flagship-card h3{font-family:var(--font-serif);color:var(--green);font-size:1.2rem;margin-bottom:1rem}
+  .btn-contact{display:inline-flex;padding:.6rem 1.4rem;border:1.5px solid var(--green);border-radius:999px;font-size:.85rem;font-weight:600;color:var(--green);transition:background .2s,color .2s}
+  .btn-contact:hover{background:var(--green);color:#fff}
+
+  .services-list{background:#fff;border-radius:20px}
+  .services-list .container{padding-top:3rem;padding-bottom:3rem}
+  .services-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem}
+  .service-item{padding:1.25rem;border:1px solid #EADFCB;border-radius:12px}
+  .service-item h4{font-family:var(--font-serif);color:var(--green);font-size:1rem;margin-bottom:.4rem}
+  .service-item p{font-size:.85rem;color:var(--ink-m)}
+
+  .about{background:var(--green);color:#fff;border-radius:20px;margin:0 1.5rem;text-align:center}
+  .about .container{max-width:640px;padding-top:3.5rem;padding-bottom:3.5rem}
+  .about h2{font-family:var(--font-serif);font-size:clamp(1.75rem,4vw,2.5rem);margin-bottom:1.5rem}
+  .about p{color:rgba(255,255,255,.85);margin-bottom:1rem}
+
+  .contact{text-align:center}
+  .contact .tag{display:inline-block;background:var(--terracotta);color:#fff;font-weight:700;font-size:.8rem;letter-spacing:.04em;padding:.5rem 1.25rem;border-radius:999px;margin-bottom:1.5rem}
+  .contact-links{display:flex;flex-direction:column;gap:.6rem;align-items:center;font-weight:700;color:var(--green)}
+  .contact-links a{border-bottom:1.5px solid transparent;transition:border-color .2s}
+  .contact-links a:hover{border-color:var(--green)}
+
+  footer{padding:2.5rem 1.5rem;text-align:center;font-size:.8rem;color:var(--ink-m)}
+  footer a{font-weight:600;color:var(--green);text-decoration:underline}
+
+  @media(max-width:640px){
+    .nav{flex-wrap:wrap;gap:.6rem;border-radius:24px}
+    .nav-about{order:3;width:100%;text-align:center}
+  }
+</style>
+</head>
+<body>
+
+<p class="demo-banner">🌿 Maquette interactive recréée à titre de démonstration — projet étudiant fictif (site original hors ligne). <a href="../../../index.html#projets">← Retour au portfolio</a></p>
+
+<div class="nav-wrap">
+  <nav class="nav">
+    <a class="nav-about" href="#apropos">À propos</a>
+    <span class="nav-logo">Tropical Beauty</span>
+    <span class="nav-socials" aria-hidden="true">📷 📘</span>
+  </nav>
+</div>
+
+<div class="hero" id="accueil">
+  <div class="hero-inner">
+    <h1 class="hero-title">Tropical<em>Beauty</em></h1>
+    <p class="hero-sub">Soins bien-être &amp; beauté à domicile en Guadeloupe</p>
+  </div>
+</div>
+
+<div class="services-nav">
+  <ul>
+    <li><a href="#soins-visage">Soins du visage</a></li>
+    <li><a href="#massages">Massages de relaxation</a></li>
+    <li><a href="#pressotherapie">Pressothérapie</a></li>
+    <li><a href="#microneedling">Microneedling et peelings</a></li>
+    <li><a href="#rituels">Rituels corps</a></li>
+    <li><a href="#soins-corps">Soins du corps</a></li>
+    <li><a href="#produits">Nos produits</a></li>
+  </ul>
+</div>
+
+<section id="phares">
+  <div class="container">
+    <h2 class="section-title">Nos services phares</h2>
+    <div class="flagship-grid">
+      <div class="flagship-card" id="rituels">
+        <div class="flagship-photo">🌺</div>
+        <h3>Rituels corps</h3>
+        <a class="btn-contact" href="#contact">Nous contacter</a>
+      </div>
+      <div class="flagship-card" id="massages">
+        <div class="flagship-photo">💆🏾‍♀️</div>
+        <h3>Massages de relaxation</h3>
+        <a class="btn-contact" href="#contact">Nous contacter</a>
+      </div>
+      <div class="flagship-card" id="pressotherapie">
+        <div class="flagship-photo">✨</div>
+        <h3>Pressothérapie</h3>
+        <a class="btn-contact" href="#contact">Nous contacter</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services-list">
+  <div class="container">
+    <h2 class="section-title">Toutes nos prestations</h2>
+    <div class="services-cols">
+      <div class="service-item" id="soins-visage"><h4>Soins du visage</h4><p>Nettoyage, hydratation et soins ciblés pour révéler l'éclat naturel de la peau.</p></div>
+      <div class="service-item" id="microneedling"><h4>Microneedling &amp; peelings</h4><p>Techniques professionnelles pour affiner le grain de peau et unifier le teint.</p></div>
+      <div class="service-item" id="soins-corps"><h4>Soins du corps</h4><p>Gommages, enveloppements et soins relaxants pour tout le corps.</p></div>
+      <div class="service-item" id="produits"><h4>Nos produits</h4><p>Une sélection de produits professionnels utilisés et recommandés pendant les soins.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="apropos">
+  <div class="container">
+    <div class="about">
+      <div class="container">
+        <h2>L'essence de Tropical Beauty</h2>
+        <p>Soins haut de gamme, produits professionnels, ambiance relaxante — tout est pensé pour révéler votre beauté naturelle.</p>
+        <p>Laissez-vous porter par un moment de douceur dans le confort de votre foyer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container contact">
+    <span class="tag">Réservations &amp; infos</span>
+    <h2 class="section-title" style="margin-bottom:1.5rem">Nous contacter</h2>
+    <div class="contact-links">
+      <a href="https://www.instagram.com/tropicaldbeauty.gp/" target="_blank" rel="noopener noreferrer">Instagram : @tropicaldbeauty.gp</a>
+      <a href="tel:+590690074943">WhatsApp / SMS : +590 690 07-4943</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Tropical Beauty — entreprise fictive, projet étudiant BUT MMI.<br />
+  Maquette interactive recréée par Vaïna Charabie · <a href="../../../index.html#projets">Voir le projet dans le portfolio</a></p>
+</footer>
+
+</body>
+</html>

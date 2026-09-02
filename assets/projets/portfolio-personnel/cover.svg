@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FAF6F1"/>
+      <stop offset="100%" stop-color="#EDD5C8"/>
+    </linearGradient>
+    <linearGradient id="photo" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E8C4B8"/>
+      <stop offset="100%" stop-color="#C4956A"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" rx="18" fill="url(#bg)"/>
+
+  <!-- barre navigateur -->
+  <rect x="0" y="0" width="800" height="46" rx="18" fill="#FDFAF7"/>
+  <rect x="0" y="28" width="800" height="18" fill="#FDFAF7"/>
+  <circle cx="28" cy="23" r="6" fill="#E8C4B8"/>
+  <circle cx="50" cy="23" r="6" fill="#D4A090"/>
+  <circle cx="72" cy="23" r="6" fill="#C4956A"/>
+  <rect x="110" y="13" width="300" height="20" rx="10" fill="#F3EBE0"/>
+  <text x="130" y="27" font-family="Arial, sans-serif" font-size="11" fill="#7A5C52">vaina971.github.io/portfolio</text>
+
+  <!-- contenu hero simplifie -->
+  <text x="60" y="120" font-family="Georgia, serif" font-size="16" fill="#C4956A">Bonjour, je suis</text>
+  <text x="60" y="165" font-family="Georgia, serif" font-size="42" font-weight="700" fill="#2C1810">Vaïna Charabie</text>
+  <text x="60" y="200" font-family="Georgia, serif" font-style="italic" font-size="20" fill="#6B3A2A">Étudiante en BUT MMI &amp; Développeuse</text>
+
+  <rect x="60" y="235" width="170" height="42" rx="21" fill="#6B3A2A"/>
+  <text x="145" y="261" font-family="Arial, sans-serif" font-size="14" fill="#FFFFFF" text-anchor="middle">Découvrir mon univers</text>
+  <rect x="245" y="235" width="140" height="42" rx="21" fill="none" stroke="#6B3A2A" stroke-width="1.5"/>
+  <text x="315" y="261" font-family="Arial, sans-serif" font-size="14" fill="#6B3A2A" text-anchor="middle">Voir mes projets</text>
+
+  <g transform="translate(60,320)" fill="#6B3A2A">
+    <text font-family="Arial, sans-serif" font-size="12">🌸 Intro animée · FR/EN · Accessible · Mode sombre</text>
+  </g>
+
+  <!-- portrait stylise -->
+  <g>
+    <ellipse cx="620" cy="230" rx="150" ry="180" fill="url(#photo)" opacity="0.9"/>
+    <circle cx="700" cy="120" r="10" fill="#FDFAF7"/>
+    <circle cx="520" cy="340" r="7" fill="#FDFAF7"/>
+    <text x="620" y="240" font-family="Georgia, serif" font-size="70" text-anchor="middle" fill="#FDFAF7">🌸</text>
+  </g>
+</svg>
